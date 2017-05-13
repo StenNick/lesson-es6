@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StenNick/GitTry.git"
+    "url": "https://github.com/StenNick/lesson-es6.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/StenNick/GitTry/issues"
+    "url": "https://github.com/StenNick/lesson-es6y/issues"
   },
-  "homepage": "https://github.com/StenNick/GitTry#readme",
+  "homepage": "https://github.com/StenNick/lesson-es6#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",

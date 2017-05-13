@@ -10,7 +10,7 @@
 6 silly lifecycle es6@1.0.0~prewatch: no script for prewatch, continuing
 7 info lifecycle es6@1.0.0~watch: es6@1.0.0
 8 verbose lifecycle es6@1.0.0~watch: unsafe-perm in lifecycle true
-9 verbose lifecycle es6@1.0.0~watch: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Nick\Desktop\FOLDER-GIT\node_modules\.bin;C:\Users\Nick\bin;D:\softina\Git\mingw64\bin;D:\softina\Git\usr\local\bin;D:\softina\Git\usr\bin;D:\softina\Git\usr\bin;D:\softina\Git\mingw64\bin;D:\softina\Git\usr\bin;C:\Users\Nick\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\softina\command;C:\Program Files\nodejs;C:\Program Files (x86)\Skype\Phone;D:\softina\Git\cmd;C:\Users\Nick\AppData\Roaming\npm;C:\Users\Nick\AppData\Local\atom\bin;D:\softina\Git\usr\bin\vendor_perl;D:\softina\Git\usr\bin\core_perl
+9 verbose lifecycle es6@1.0.0~watch: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Nick\Desktop\FOLDER-GIT\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\softina\command;C:\Program Files (x86)\Skype\Phone\;D:\softina\Git\cmd;C:\Program Files\nodejs\;C:\Users\Nick\AppData\Local\atom\bin;C:\Users\Nick\AppData\Roaming\npm;D:\softina\Microsoft VS Code\bin
 10 verbose lifecycle es6@1.0.0~watch: CWD: C:\Users\Nick\Desktop\FOLDER-GIT
 11 silly lifecycle es6@1.0.0~watch: Args: [ '/d /s /c', 'babel src -d dist --presets es2015 -w' ]
 12 silly lifecycle es6@1.0.0~watch: Returned: code: 2  signal: null
