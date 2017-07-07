@@ -244,10 +244,114 @@
 // getArguments('Nick');
 
 
-// var five = 5, six = 6;
-// function getSum(a,b){
-//   return a + b;
-//   console.log(five +six); // так не сработает, функция прекратила работу после RETURN 
+// function getSum(){ 
+//     let questionUserOne = prompt('Enter number', 5);
+//     let questionUserTwo = prompt('Enter your number', 10);
+//   return questionUserOne + questionUserTwo;
 // }
-// getSum(2,6);
+// getSum();
 
+
+
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Родители разрешили?');
+//   }
+// }  ПЕРЕПИСАТЬ ФУНКЦИЮ ИСПОЛЬЗУЯ ЛИБО ? ИЛИ ||
+
+
+// function checkAge(age) {
+//   return (age > 18) ? true : confirm('Родители разрешили?');
+// }
+// checkAge(21);
+// function checkAge(age){
+//     return (age > 18) || confirm('Родители разрешили?');
+// }
+// checkAge(12);
+
+// function min(){
+//     let numberUser1 = prompt('Enter your number ', 2);
+//     let numberUser2 = prompt('Your number', 8);
+//     if (numberUser1 < numberUser2){
+//         return numberUser1;
+//     }
+//     else {
+//         return numberUser2;
+//     }
+// }
+// min(); //получить наименьшее число
+
+
+
+// Methods 
+
+// let someWord = 'Here some word';
+// console.log(someWord.length);
+
+// let upperCaseWord = 'this word with uppercase';
+// console.log(upperCaseWord.toUpperCase());
+
+
+// let num = 12.345,
+//     somenumber = 43.200;
+
+// console.log(num.toFixed(2) + '   12.345');
+// console.log(num.toFixed(0) + '   12.345');
+// console.log(num.toFixed(4) + '   12.345');
+// console.log(somenumber.toFixed(1) + '    43.200');
+
+// let numOne = 12;
+// let notNumber = Infinity;
+// let nanNumber = NaN;
+// console.log(isFinite(numOne));
+// console.log(isFinite(notNumber));
+// console.log(isFinite(nanNumber));
+
+
+// let someNumber = '342.43',
+//     secondnumber = '435';
+//     console.log(+someNumber); // преобразовали к числу явно через знак +
+//     console.log(+secondnumber);
+// let stringNotNumber = '214what';
+// console.log(+stringNotNumber); // NaN
+
+// alert( +"  -12" ); // -12
+// alert( +" \n34  \n" ); // 34, перевод строки \n является пробельным символом
+// alert( +"" ); // 0, пустая строка становится нулем
+// alert( +"1 2" ); // NaN, пробел посередине числа - ошибка
+
+// let changeString = '545px';
+// console.log(parseInt(changeString));
+// let secondNumber = '1234.324.12';
+// console.log(parseFloat(secondNumber));
+
+// Проверка на число
+
+// let number1 = prompt('Enter number', ' 20');
+// let blabla = parseInt(number1);
+// if (isNaN(blabla)){
+//     console.log('It not a number - NaN');
+// } else {
+//     console.log(' It number');
+// }
+
+
+// function inNumeric(x) { // строгая проверка на число
+//     return !isNaN(parseFloat(x)) && isFinite(x);
+// }
+
+
+// let myNumber = prompt('Enter number', '42');
+
+// function getNumber() {
+//     console.log(inNumeric(myNumber) + ' проверка');
+// }
+// getNumber();
+
+// if (inNumeric(myNumber)) {
+//     console.log(myNumber + ' number');
+// } else {
+//     console.log(myNumber + ' not a number');
+// }
