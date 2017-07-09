@@ -351,4 +351,234 @@
 // } else {
 //     console.log(myNumber + ' not a number');
 // }
+
+
+// function mathMakes() {
+//     let num1 = 5.65;
+//     let num2 = 5.65;
+//     let num3 = 5.65;
+//     console.log(Math.floor(num1));
+//     console.log( Math.ceil(num2));
+//     console.log(Math.round(num3));
+// }
+// mathMakes();
+
+// let minNumber = 34.245;
+// let maxNumber = 4.53677;
+
+// console.log(Math.round(minNumber * 100) / 100 + '  number will be change from 34.245');
+// console.log( Math.ceil(maxNumber * 100) / 100 + ' method Math.ceil,  number will be change from  4.53677');
+
+
+// let localeString = 1234567890;
+// let localNumber = '234765';
+// let number = 2812;
+
+// console.log(localeString.toLocaleString());
+// console.log(localNumber.toLocaleString() + ' this String, not number');
+// console.log(number.toLocaleString());
+
+
+// function getAnswerUser() {
+//     let questionUserOne = +prompt('Enter first number', 2);
+//     let questionUserTwo = +prompt('Enter second number', 5);
+//     alert(parseInt(questionUserOne) + parseInt(questionUserTwo));
+//     return questionUserOne + questionUserTwo;
+// }
+// getAnswerUser();
+
+
+// function getPrice() {
+//     let price1 = +prompt("Enter price", "");
+//     let price2 = +prompt('enter second price', '');
+//     console.log( +(price1 + price2).toFixed(2));
+// }
+// getPrice();
+
+
+// String
+
+// console.log('Hello \nWorld!');
+
+// console.log('My it\'s name \nNick');
+
+// console.log('First'.charAt(2));
+
+// let str = 'Крутое слово';
+// str = str[0] + str[1] + str[2];
+// console.log(str);
+
+
+// IndexOf();
+
+// let str = 'Widget with id some word, position';
+
+// console.log(str.indexOf('id'));
+// console.log(str.indexOf('rere'));
+// console.log(str.indexOf('Widget'));
+// console.log(str.indexOf('word'));
+// console.log(str.indexOf('position'));
+
+
+// let str = 'I\'m long string';
+
+// console.log(str.substring(0, 3)); // i'm 
+// console.log(str.substring(2)); // m long string
+// console.log(str.substring(4, 6)); // lo
+
+
+// Object or assotian array
+
+// let propertyObject = {
+
+//     name: 'Stenli',
+//     age: '24',
+//     someProp: 'Delete me'
+
+// };
+// console.log(propertyObject.name + " " + propertyObject.age);
+// delete propertyObject.someProp;
+// console.log(propertyObject.someProp);
+
+// if ('name' in propertyObject) {
+//     console.log(' good :) ')
+// }
+
+// let user = {};
+// user['name'] = 'Вася';
+// user['surename'] = 'Петров';
+// user['name'] = 'Сергей';
+// delete user.name;
+// console.log(user.name);
+
+// let user2 = {
+//     name: 'Вася',
+//     surname: 'Петров'
+// };
+
+// user2.name = 'Сергей';
+// console.log(user2.name);
+
+// delete user2.name;
+// console.log(user2.name);
+
+// let someObject = {
+//     name: 'Shon',
+//     age: 24,
+//     job: 'Developer'
+// };
+// let counter = 0;
+// for( let keyObj in someObject ) {
+//     counter++;
+//     console.log('Key ' + keyObj + " " +  someObject[keyObj] + ' количество свойств ' + counter);
+// }
+
+// let codesCounters = {
+//     '+7' : 'Russia',
+//     '+38' : 'Ukraine',
+//     '+1' : 'USA'
+// };
+
+// for (let key in codesCounters) {
+//     let value = codesCounters[key];
+//     key = +key;
+//     console.log(key + ":" + value);
+// }
+
+
+// function checkPropInObj(value) {
+//     for (let key in value) {
+//             return false;
+//     } 
+//     return true;
+// }
+
+// let UserProp = {};
+// checkPropInObj(UserProp);
+// UserProp['name'] = 'Mike';
+// checkPropInObj(UserProp);
+
+
+// var salaries = {
+//   "Вася": 100,
+//   "Петя": 300,
+//   "Даша": 250
+// };
+
+// let counter = 0;
+// for (var key in salaries) {
+//      counter += salaries[key];
+// }
+// console.log(counter); // сумма всех свойств
+
+// var max = 0;
+// var maxName = "";
+// for (var name in salaries) {
+//   if (max < salaries[name]) {
+//     max = salaries[name];
+//     maxName = name;
+//   }
+// }
+
+// console.log( maxName || "нет сотрудников" );
+
+
+// Для проверки на число используйте функцию:
+
+// function isNumeric(n) {
+//   return !isNaN(parseFloat(n)) && isFinite(n)
+// }
+
+
+// let menu = {
+//     width: '500',
+//     height: '200',
+//     title: 'Menu'
+// };
+
+// function multiplyNumeric(value){
+//     for (var key in value) {
+//         if(isNumeric(value[key])) {
+//             value[key] *= 2;
+//         }
+//     }
+// } // умножаем свойства объекта на 2
+
+// multiplyNumeric(menu);
+
+// console.log(menu.width + " " + menu.height);
+
+
+// Links with Object's
+
+
+// let userName = {
+//     name: 'Ivan',
+//     lastName: 'Petrov'
+// };
+
+// let anotherUser = userName; // copy link for userName, not object.
+// anotherUser.lastName = 'Alekseev';
+
+// for (var key in userName) {
+//     console.log(key + " " + userName[key]);
+// }
+
+// for (var key in anotherUser) {
+//     console.log(key + ": " + anotherUser[key]);
+// }
+
+
+// let nameIvan = {
+//     name: 'Ivan'
+// };
+
+// let cloneObj = {};
+
+// for (let key in nameIvan) {
+//     cloneObj[key] = nameIvan[key]; // клонировали Объект Иван в  другой объект
+// }
+
+// console.log( nameIvan.name = 'Grisha');
+// console.log(cloneObj.name);
 "use strict";
