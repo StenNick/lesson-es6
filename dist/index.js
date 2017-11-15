@@ -680,3 +680,18 @@ for (var item = 0; item < outerLink.length; item++) {
   if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
   a.classList.add('external');
 }
+
+var cars = ['bmw', 'mercedes', 'lada', 'nissan'];
+
+for (var i = 0; i < cars.length; i++) {
+  var itemCar = cars[i];
+  var emptyArr = [];
+  var _a = ' Cool car';
+  emptyArr.push(itemCar + _a);
+  console.log(emptyArr);
+}
+
+var parentUl = document.querySelector('.parent'); // родительский блок
+var childLi = document.querySelector('.childUl'); // дочерний элемент
+var innerChild = parentUl.contains(childLi); // проверяем есть ли у родителя элемент li
+console.log(innerChild); // true

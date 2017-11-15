@@ -696,3 +696,20 @@ for (var item = 0; item < outerLink.length; item++) {
     if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
     a.classList.add('external');
 }
+
+
+let cars = ['bmw', 'mercedes', 'lada', 'nissan'];
+
+for (var i = 0; i < cars.length; i++) {
+    let itemCar = cars[i];
+    let emptyArr = [];
+    let a = ' Cool car';
+    emptyArr.push(itemCar + a);
+    console.log(emptyArr);
+}
+
+
+let parentUl = document.querySelector('.parent'); // родительский блок
+let childLi = document.querySelector('.childUl'); // дочерний элемент
+var innerChild = parentUl.contains(childLi); // проверяем есть ли у родителя элемент li
+console.log(innerChild); // true
