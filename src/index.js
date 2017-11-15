@@ -592,3 +592,107 @@
 
 // console.log( nameIvan.name = 'Grisha');
 // console.log(cloneObj.name);
+
+
+// let elem = document.documentElement.childNodes;
+// [].forEach.call(elem, function(el){
+//     console.log(el);
+// }); // выдаст массив всех DOM элементов на странице в виде списка массива
+
+
+// for(let i = 0; i < document.body.children.length; i++){
+//     console.log(document.body.children[i]);
+// }
+
+
+// let parentElem = document.getElementById('parentElem');
+// let childElem = parentElem.firstElementChild;
+// let childParent = document.getElementsByClassName('child');
+// console.log(parentElem, childElem);
+// console.log('this is an element of type' + parentElem.nodeType);
+// console.log('this is inner html element ' + parentElem.innerHTML.length + ' length array');
+// console.log(childParent.innerHTML);
+
+// function changeColor(){
+//     document.body.style.background = '#333';
+// }
+
+
+// const coffeButton = document.querySelectorAll('.coffeButton');
+// // coffeButton.onclick = function() {
+// //     document.body.style.background = '#80c7f7';
+// // }
+// coffeButton.forEach(function(ev){
+//     ev.onclick = changeColor; // пройдемся по массиву и назначим каждой кнопке эту функцию
+// })
+
+const lalaBut = document.querySelector('.changeText');
+
+function replaceText(){
+    lalaBut.innerHTML = 'new text';
+}
+lalaBut.addEventListener('click', replaceText);
+
+
+let colorBody = document.querySelector('.changeColorBody');
+colorBody.onclick = function(ev) {
+   document.body.style.background = '#92dbc4';
+}
+
+let btnElem = document.querySelector('.btn');
+console.log(btnElem.closest('button').className);
+
+
+console.log(document.body);
+
+console.log(document.body instanceof Object);
+
+
+document.body.myData = {
+    name: 'Петр',
+    familyName: 'Петрович'
+  };
+  
+  console.log( document.body.myData.name ); // Петр
+
+
+  let attrElem = document.querySelector('.changeColor');
+  console.log(attrElem.getAttribute('about')); // получаем имя аттрибута из html дерева
+  attrElem.setAttribute('fuck', 'new element!'); // меняем старый аттрибут на fuck, и даем ему свойство - new element  (fuck='new element')
+  console.log(attrElem.getAttribute('fuck'));
+
+
+
+  let link = document.querySelector('.link');
+  console.log(link.getAttribute('href'));
+  link.setAttribute('href','https://www.yandex.ru/');
+  console.log(link.getAttribute('href'));
+
+  let changeClass = document.querySelector('.changeRadius');
+//   changeClass.onclick = function() {
+//       this.className = 'blueButton';
+//   }
+
+
+//   console.log(changeClass.classList.contains('changeRadius')); // проверяет наличие класса у элемента
+
+ changeClass.classList.toggle('blueButton');
+
+
+ let attrDiv = document.querySelector('.car');
+ console.log(attrDiv.getAttribute('data-ng-blur'));
+
+ let widgetElement = document.getElementById('widget');
+ console.log(widgetElement);
+ console.log(widgetElement.getAttribute('data-widget-name'));
+
+
+ const outerLink = document.querySelectorAll('a');
+for (var item = 0; item < outerLink.length; item++) {
+    let a = outerLink[item];
+    let href = a.getAttribute('href');
+    if (!href) continue;
+    if (href.indexOf('://') == -1) continue;
+    if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
+    a.classList.add('external');
+}

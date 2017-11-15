@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
   <!-- подключаем библиотеку Mocha -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <link rel="stylesheet" href="src/style.css">
   <!-- настраиваем Mocha: предстоит BDD-тестирование -->
   <script>
     mocha.setup('bdd');
@@ -22,28 +23,53 @@
   </script>
 </head>
 <body>
-    <script>
-    function pow(x, n) {
-  var result = 1;
 
-  for (var i = 0; i < n; i++) {
-    result *= x;
-  }
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+  Mollitia optio adipisci amet eius dignissimos? Maiores ullam et
+   tenetur incidunt delectus reiciendis officia eligendi labore
+    distinctio. Delectus dolore nisi id qui.</p>
 
-  return result;
-}
-  </script>
 
-  <!-- в этом скрипте находятся спеки -->
-  <script src="dist/test.js"></script>
+  <div class="container">
+    <button class="btn changeColorBody">color body</button>
+    <button class="btn changeText">change text</button>
+    <button  about='attribute element'    class="btn changeColor">color text</button>
+    <button class="btn changeRadius">change radius element</button>
+  </div>
+  <a href="wwww.google.com" class="link">link here</a>
 
-  <!-- в элементе с id="mocha" будут результаты тестов -->
-  <div id="mocha"></div>
+  <div class="car" data-ng-blur="red car" data-ng-bind="bind color"></div>
+  <div id="widget" data-widget-name="menu">Выберите жанр</div>
 
-  <!-- запустить тесты! -->
-  <script>
-    mocha.run();
-  </script>
+
+
+  <style>
+    .external {
+      background-color: yellow
+    }
+  </style>
+  
+  <a name="list">список</a>
+  <ul>
+    <li><a href="http://google.com">http://google.com</a></li>
+    <li><a href="/tutorial">/tutorial.html</a></li>
+    <li><a href="local/path">local/path</a></li>
+    <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+    <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+    <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <script src="dist/index.js"></script>
