@@ -617,81 +617,176 @@
 //     ev.onclick = changeColor; // пройдемся по массиву и назначим каждой кнопке эту функцию
 // })
 
-var lalaBut = document.querySelector('.changeText');
+// const lalaBut = document.querySelector('.changeText');
 
-function replaceText() {
-  lalaBut.innerHTML = 'new text';
-}
-lalaBut.addEventListener('click', replaceText);
-
-var colorBody = document.querySelector('.changeColorBody');
-colorBody.onclick = function (ev) {
-  document.body.style.background = '#92dbc4';
-};
-
-var btnElem = document.querySelector('.btn');
-console.log(btnElem.closest('button').className);
-
-console.log(document.body);
-
-console.log(document.body instanceof Object);
-
-document.body.myData = {
-  name: 'Петр',
-  familyName: 'Петрович'
-};
-
-console.log(document.body.myData.name); // Петр
+// function replaceText(){
+//     lalaBut.innerHTML = 'new text';
+// }
+// lalaBut.addEventListener('click', replaceText);
 
 
-var attrElem = document.querySelector('.changeColor');
-console.log(attrElem.getAttribute('about')); // получаем имя аттрибута из html дерева
-attrElem.setAttribute('fuck', 'new element!'); // меняем старый аттрибут на fuck, и даем ему свойство - new element  (fuck='new element')
-console.log(attrElem.getAttribute('fuck'));
+// let colorBody = document.querySelector('.changeColorBody');
+// colorBody.onclick = function(ev) {
+//    document.body.style.background = '#92dbc4';
+// }
 
-var link = document.querySelector('.link');
-console.log(link.getAttribute('href'));
-link.setAttribute('href', 'https://www.yandex.ru/');
-console.log(link.getAttribute('href'));
-
-var changeClass = document.querySelector('.changeRadius');
-//   changeClass.onclick = function() {
-//       this.className = 'blueButton';
-//   }
+// let btnElem = document.querySelector('.btn');
+// console.log(btnElem.closest('button').className);
 
 
-//   console.log(changeClass.classList.contains('changeRadius')); // проверяет наличие класса у элемента
+// console.log(document.body);
 
-changeClass.classList.toggle('blueButton');
+// console.log(document.body instanceof Object);
 
-var attrDiv = document.querySelector('.car');
-console.log(attrDiv.getAttribute('data-ng-blur'));
 
-var widgetElement = document.getElementById('widget');
-console.log(widgetElement);
-console.log(widgetElement.getAttribute('data-widget-name'));
+// document.body.myData = {
+//     name: 'Петр',
+//     familyName: 'Петрович'
+//   };
+
+//   console.log( document.body.myData.name ); // Петр
+
+
+//   let attrElem = document.querySelector('.changeColor');
+//   console.log(attrElem.getAttribute('about')); // получаем имя аттрибута из html дерева
+//   attrElem.setAttribute('fuck', 'new element!'); // меняем старый аттрибут на fuck, и даем ему свойство - new element  (fuck='new element')
+//   console.log(attrElem.getAttribute('fuck'));
+
+
+//   let link = document.querySelector('.link');
+//   console.log(link.getAttribute('href'));
+//   link.setAttribute('href','https://www.yandex.ru/');
+//   console.log(link.getAttribute('href'));
+
+//   let changeClass = document.querySelector('.changeRadius');
+// //   changeClass.onclick = function() {
+// //       this.className = 'blueButton';
+// //   }
+
+
+// //   console.log(changeClass.classList.contains('changeRadius')); // проверяет наличие класса у элемента
+
+//  changeClass.classList.toggle('blueButton');
+
+
+//  let attrDiv = document.querySelector('.car');
+//  console.log(attrDiv.getAttribute('data-ng-blur'));
+
+//  let widgetElement = document.getElementById('widget');
+//  console.log(widgetElement);
+//  console.log(widgetElement.getAttribute('data-widget-name'));
+
 
 var outerLink = document.querySelectorAll('a');
 for (var item = 0; item < outerLink.length; item++) {
-  var a = outerLink[item];
-  var href = a.getAttribute('href');
-  if (!href) continue;
-  if (href.indexOf('://') == -1) continue;
-  if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
-  a.classList.add('external');
+    var a = outerLink[item];
+    var href = a.getAttribute('href');
+    if (!href) continue;
+    if (href.indexOf('://') == -1) continue;
+    if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
+    a.classList.add('external');
 }
 
-var cars = ['bmw', 'mercedes', 'lada', 'nissan'];
+// let cars = ['bmw', 'mercedes', 'lada', 'nissan'];
 
-for (var i = 0; i < cars.length; i++) {
-  var itemCar = cars[i];
-  var emptyArr = [];
-  var _a = ' Cool car';
-  emptyArr.push(itemCar + _a);
-  console.log(emptyArr);
+// for (var i = 0; i < cars.length; i++) {
+//     let itemCar = cars[i];
+//     let emptyArr = [];
+//     let a = ' Cool car';
+//     emptyArr.push(itemCar + a);
+//     console.log(emptyArr);
+// }
+
+
+// let parentUl = document.querySelector('.parent'); // родительский блок
+// let childLi = document.querySelector('.childUl'); // дочерний элемент
+// var innerChild = parentUl.contains(childLi); // проверяем есть ли у родителя элемент li
+// console.log(innerChild); // true
+
+
+// let parentBlock = document.querySelector('.container');
+// let childBlock = document.querySelector('.second');
+// let nextElem = document.querySelector('.third');
+// let result = parentBlock.contains(childBlock);
+
+// if (result) {
+//   childBlock.style.border = "2px solid red";
+// }
+
+
+// console.log(parBlock);
+
+
+// let newElem = document.createElement('div');
+
+// let someText = document.createTextNode('Welcome on my Page!');
+// newElem.className = 'alert alert-succes';
+// newElem.innerHTML = '<strong>Yeah!</strong> Yor read it message';
+
+
+// subLi.appendChild(newElem);
+
+// let newLiElement = document.createElement('li');
+// newLiElement.innerHTML = 'Java Script!';
+
+// let someOne = document.createElement('li');
+// someOne.innerHTML = 'new element here';
+
+
+// let list = document.querySelector('.list');
+// list.insertBefore(newLiElement, list.children[2]); // вставили новый ЛИ элемент перед 2м индексом (элементом в списке)
+
+
+// list.insertBefore(someOne, list.children[0]);
+
+
+// let empt = document.querySelector('.emptyElement');
+// empt.insertBefore(newLiElement, empt.firstChild); // добавили элемент в начало списка, даже если он пустой, он встанет тудаlet compareElement = nextElem.compareDocumentPosition(childBlock);
+// console.log(compareElement);
+
+// let subLi = document.querySelector('.subElem');
+// let parBlock = subLi.compareDocumentPosition(parentBlock);
+
+
+// КЛОНИРОВАНИЕ УЗЛОВ cloneNode
+
+var alertMessage = document.querySelector('.alert');
+var newAlert = document.createElement('li');
+newAlert.className = ' danger';
+newAlert.innerHTML = ' DANGER! '; // создали новый элементо/узел, дали ему текст
+
+
+alertMessage.appendChild(newAlert);
+
+var cloneAlert = newAlert.cloneNode(true); // клонируем новый элемент и даем новый текстовый узел
+cloneAlert.innerHTML = 'Homer Simpson';
+
+alertMessage.insertBefore(cloneAlert, alertMessage.firstChild); // вставим в самое начало наш КЛОНИРОВАННЫЙ узел
+
+
+var numbresUl = document.querySelector('.numbres');
+
+var subelements = numbresUl.getElementsByTagName('li');
+
+var _loop = function _loop() {
+    console.log(subelements[i]);
+    numbresUl.insertBefore(cloneAlert, subelements[2]);
+    var numberThree = subelements[3];
+    numberThree.style.background = '#5cb6f2';
+    var lastElement = subelements.length - 1;
+    numberThree.onclick = function () {
+        // numbresUl.removeChild(subelements[0]); // удаляем элемент с момщью removeChild
+        this.remove(lastElement);
+    };
+};
+
+for (var i = 0; i < subelements.length; i++) {
+    _loop();
 }
 
-var parentUl = document.querySelector('.parent'); // родительский блок
-var childLi = document.querySelector('.childUl'); // дочерний элемент
-var innerChild = parentUl.contains(childLi); // проверяем есть ли у родителя элемент li
-console.log(innerChild); // true
+var textMess = document.createTextNode('Hidden block');
+var hiddenBlock = document.querySelector('.hiddenBlock');
+hiddenBlock.appendChild(textMess);
+setTimeout(function () {
+    document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
+}, 3000);
