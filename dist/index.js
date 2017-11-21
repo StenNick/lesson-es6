@@ -677,15 +677,16 @@
 //  console.log(widgetElement.getAttribute('data-widget-name'));
 
 
-var outerLink = document.querySelectorAll('a');
-for (var item = 0; item < outerLink.length; item++) {
-    var a = outerLink[item];
-    var href = a.getAttribute('href');
-    if (!href) continue;
-    if (href.indexOf('://') == -1) continue;
-    if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
-    a.classList.add('external');
-}
+//  const outerLink = document.querySelectorAll('a');
+// for (var item = 0; item < outerLink.length; item++) {
+//     let a = outerLink[item];
+//     let href = a.getAttribute('href');
+//     if (!href) continue;
+//     if (href.indexOf('://') == -1) continue;
+//     if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
+//     a.classList.add('external');
+// }
+
 
 // let cars = ['bmw', 'mercedes', 'lada', 'nissan'];
 
@@ -750,43 +751,98 @@ for (var item = 0; item < outerLink.length; item++) {
 
 // КЛОНИРОВАНИЕ УЗЛОВ cloneNode
 
-var alertMessage = document.querySelector('.alert');
-var newAlert = document.createElement('li');
-newAlert.className = ' danger';
-newAlert.innerHTML = ' DANGER! '; // создали новый элементо/узел, дали ему текст
+// let alertMessage = document.querySelector('.alert');
+// let newAlert = document.createElement('li');
+// newAlert.className = ' danger';
+// newAlert.innerHTML = ' DANGER! '; // создали новый элементо/узел, дали ему текст
 
 
-alertMessage.appendChild(newAlert);
+// alertMessage.appendChild(newAlert);
 
-var cloneAlert = newAlert.cloneNode(true); // клонируем новый элемент и даем новый текстовый узел
-cloneAlert.innerHTML = 'Homer Simpson';
+// let cloneAlert = newAlert.cloneNode(true); // клонируем новый элемент и даем новый текстовый узел
+// cloneAlert.innerHTML = 'Homer Simpson';
 
-alertMessage.insertBefore(cloneAlert, alertMessage.firstChild); // вставим в самое начало наш КЛОНИРОВАННЫЙ узел
+// alertMessage.insertBefore(cloneAlert, alertMessage.firstChild); // вставим в самое начало наш КЛОНИРОВАННЫЙ узел
 
 
-var numbresUl = document.querySelector('.numbres');
+// let numbresUl = document.querySelector('.numbres');
 
-var subelements = numbresUl.getElementsByTagName('li');
+// let subelements = numbresUl.getElementsByTagName('li');
+// for (var i = 0; i < subelements.length; i++) {
+//     console.log(subelements[i]);
+//     numbresUl.insertBefore(cloneAlert, subelements[2]);
+//     let numberThree = subelements[3];
+//     numberThree.style.background = '#5cb6f2';
+//     let lastElement = subelements.length - 1;
+//     numberThree.onclick = function(){
+//         // numbresUl.removeChild(subelements[0]); // удаляем элемент с момщью removeChild
+//         this.remove(lastElement);
+//     }
 
-var _loop = function _loop() {
-    console.log(subelements[i]);
-    numbresUl.insertBefore(cloneAlert, subelements[2]);
-    var numberThree = subelements[3];
-    numberThree.style.background = '#5cb6f2';
-    var lastElement = subelements.length - 1;
-    numberThree.onclick = function () {
-        // numbresUl.removeChild(subelements[0]); // удаляем элемент с момщью removeChild
-        this.remove(lastElement);
-    };
-};
+// }
 
-for (var i = 0; i < subelements.length; i++) {
-    _loop();
+// let textMess = document.createTextNode('Hidden block');
+// let hiddenBlock = document.querySelector('.hiddenBlock');
+// hiddenBlock.appendChild(textMess);
+// setTimeout(() => {
+//    document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
+// }, 3000);
+
+
+// let colorBlock = document.querySelector('.colorBlock');
+
+// function changeColor() {
+//     colorBlock.classList.toggle('red-block');
+// }
+
+
+var ulElement = document.querySelectorAll('ul');
+
+function getAllUl() {
+    for (var i = 0; i < ulElement.length; i++) {
+        // console.log(ulElement[i]);
+        ulElement[i].style.background = 'lightblue';
+        var parrentUl = ulElement[2];
+        console.log(parrentUl);
+        var liChild = parrentUl.getElementsByTagName('li');
+        console.log(liChild);
+        for (var li = 0; li < liChild.length; li++) {
+            console.log(liChild[li]);
+            var textNode = document.textContent = 'Hello!';
+            liChild[2].innerHTML = textNode;
+            liChild[2].style.background = 'coral';
+            liChild[2].onclick = function () {
+                var redBlock = document.createElement('div');
+                redBlock.className = 'red-block';
+                var alertMessage = redBlock.textContent = 'Внимание!';
+                redBlock.innerHTML = alertMessage;
+                this.appendChild(redBlock);
+            };
+        }
+    }
 }
 
-var textMess = document.createTextNode('Hidden block');
-var hiddenBlock = document.querySelector('.hiddenBlock');
-hiddenBlock.appendChild(textMess);
-setTimeout(function () {
-    document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
-}, 3000);
+getAllUl();
+
+var bigDiv = document.createElement('div');
+for (var i = 0; i < bigDiv.length; i++) {
+    bigDiv[i].appendChild(span);
+    document.body.appendChild(bigDiv);
+}
+
+var mainElement = document.querySelectorAll('ul')[0];
+var childElementOne = mainElement.children[0];
+
+childElementOne.style.background = '#b3dffc';
+childElementOne.style.color = '#333';
+
+var one = childElementOne.insertAdjacentHTML('beforeBegin', '<li class="before">перед элементом  beforeBegin  </li>');
+// найдем самый первый UL элемент из всех списков, найдем его первый дочерний элемент (0), и вставим ПЕРЕД ним множество новых li с чем либо
+
+
+childElementOne.insertAdjacentHTML('afterBegin', '<li class="before-middle">в самое начало элемента  afterBegin </li>');
+// нашли 1й элемент, и вставили перед ним что либо
+
+childElementOne.insertAdjacentHTML('beforeEnd', '<li class="after-middle">в конец  элемента  beforeEnd </li>');
+
+childElementOne.insertAdjacentHTML('afterEnd', '<li class="after-end">после элемента  afterEnd </li>');

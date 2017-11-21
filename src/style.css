@@ -92,3 +92,41 @@ body * .container .child-block {
       text-align: center;
       padding: 20px;
   }
+
+  .colorBlock{
+      height: 200px;
+      width: 200px;
+      border: 2px solid #333;
+  }
+
+  .red-block{
+      background: coral;
+      border-radius: 5px;
+  }
+
+  ul{
+      margin: 20px;
+      border: 1px solid #333;
+      padding: 10px;
+  }
+
+  ul li {
+      padding: 10px;
+      border: 1px solid coral;
+      background: #fff;
+  }
+
+  .red-block{
+      width: 200px;
+      height: auto;
+      padding: 10px;
+      background: #fff;
+  }
+
+  .before {
+      background: #d6b3fc;
+  }
+
+  .after-end {
+      background: #c9fcb3;
+  }
