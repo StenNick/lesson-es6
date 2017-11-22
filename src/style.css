@@ -130,3 +130,26 @@ body * .container .child-block {
   .after-end {
       background: #c9fcb3;
   }
+
+  #parrent {
+      width: 400px;
+      padding: 10px;
+      text-align: center;
+      height: auto;
+      color: #fff;
+      background: #333;
+  }
+
+  .sub-block, .pre-block{
+      width: 200px;
+      height: 50px;
+      background: cornflowerblue;
+      margin: 10px auto;
+  }
+
+
+  .after-element, .before-element{
+      padding: 20px;
+      background: coral;
+      width: 200px;
+  }

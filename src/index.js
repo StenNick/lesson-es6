@@ -863,3 +863,36 @@ childElementOne.insertAdjacentHTML('beforeEnd', '<li class="after-middle">в к�
 
 
 childElementOne.insertAdjacentHTML('afterEnd', '<li class="after-end">после элемента  afterEnd </li>');
+
+let parrent = document.querySelector('#parrent');
+let subElem = document.createElement('div');
+subElem.className = 'sub-block';
+subElem.textContent = 'append method';
+let fragment = document.createDocumentFragment(subElem);
+
+console.log(fragment);
+parrent.appendChild(fragment);
+
+let preElement = document.createElement('div');
+preElement.className = 'pre-block';
+preElement.textContent = 'prepend method';
+
+let afterElement = document.createElement('div');
+afterElement.className = 'after-element';
+afterElement.textContent = 'after element';
+
+let beforeElement = document.createElement('div');
+beforeElement.className = 'before-element';
+beforeElement.textContent = 'before element';
+
+let replaceElement = document.createElement('div');
+replaceElement.className = 'replace-element';
+replaceElement.textContent = ' I NEW ELEMENT ';
+
+
+
+parrent.append(subElem);
+parrent.prepend(preElement);
+
+parrent.before(beforeElement);
+parrent.after(afterElement);
