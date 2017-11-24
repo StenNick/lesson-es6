@@ -848,6 +848,7 @@ childElementOne.insertAdjacentHTML('beforeEnd', '<li class="after-middle">в к�
 childElementOne.insertAdjacentHTML('afterEnd', '<li class="after-end">после элемента  afterEnd </li>');
 
 var parrent = document.querySelector('#parrent');
+
 var subElem = document.createElement('div');
 subElem.className = 'sub-block';
 subElem.textContent = 'append method';
@@ -877,3 +878,56 @@ parrent.prepend(preElement);
 
 parrent.before(beforeElement);
 parrent.after(afterElement);
+
+var bigBlock = document.querySelector('.big-block');
+var paragraph = bigBlock.querySelectorAll('p')[3];
+console.log(bigBlock.clientWidth);
+console.log(getComputedStyle(bigBlock).width + ' comuted style width');
+
+var innerBlock = document.querySelector('.inner-block');
+
+var scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
+
+console.log('Высота с учетом прокрутки: ' + scrollHeight); // Надёжно определить размер страницы с учетом прокрутки можно, взяв максимум из нескольких свойств:
+
+console.log('Текущая прокрутка сверху: ' + window.pageYOffset);
+console.log(document.documentElement.scrollTop + ' scroll'); // Текущая прокрутка сверху:
+
+parrent.onclick = function () {
+    window.scrollTo(0, 100); // при нажатии на элемент вернет окно на заданую высоту от начала экрана
+};
+
+// paragraph.style.border = '6px solid red';
+// console.log(paragraph.clientHeight);
+
+
+// let paddingBlock,
+//     borderBlock,
+//     innerWidth,
+//     scrollBar;
+
+//     borderBlock = bigBlock.clientLeft;
+//     scrollBar = bigBlock.scrollTop;
+//     innerWidth = bigBlock.clientWidth;
+//     console.log(borderBlock + scrollBar + innerWidth);
+
+// console.log(bigBlock.clientHeight + ' высота контента clientHeight');
+// console.log(bigBlock.clientWidth +  ' ширина контента clientWidth');
+// console.log(bigBlock.clientTop +    ' высота рамки блока clientTop');
+// console.log(bigBlock.clientLeft +   ' ширина рамки блока clientLeft');
+// console.log(bigBlock.offsetTop + ' высота элемента от начала страницы или род. элемента');
+// console.log(bigBlock.offsetLeft + ' расстояние от левого края страницы или род элемента');
+// console.log(bigBlock.offsetWidth +   ' внешняя ширина элемента, ширина блока в ксс 450');
+// console.log(bigBlock.offsetHeight +   ' внешняя высота элемента');
+// console.log(bigBlock.scrollHeight +   ' скролл элемента');
+// console.log(bigBlock.scrollTop +   ' скролл внешнего размера элемента');
+
+
+// let innerBlock = document.querySelector('.inner-block');
+
+// console.log(innerBlock.offsetTop + ' внешняя высота от род блока');
+// console.log(innerBlock.offsetLeft + ' внешний отступ от род блока');
+
+// console.log(innerBlock.offsetHeight + ' высота блока включая рамки');
+// console.log(innerBlock.offsetWidth + ' ширина блока включая рамки');
+// console.log(innerBlock.clientHeight + ' внутреняя высота блока');

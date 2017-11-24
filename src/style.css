@@ -153,3 +153,31 @@ body * .container .child-block {
       background: coral;
       width: 200px;
   }
+
+  .big-block{
+      height: 500px;
+      width: 450px;
+      border: 25px solid #333;
+      padding: 21px;
+      margin: auto; 
+      text-align: justify;
+      background: lightgreen;
+      overflow:auto;
+      position: relative;
+  }
+
+  .big-block p{
+      background: #fff;
+  }
+
+  .big-block .inner-block{
+      position: absolute;
+      top: 102px;
+      left: 102px;
+      height: 100px;
+      width: 100px;
+      background: coral;
+      border: 5px solid #333;
+      text-align: justify;
+      
+  }
