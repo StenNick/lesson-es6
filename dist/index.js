@@ -803,11 +803,11 @@ function getAllUl() {
         // console.log(ulElement[i]);
         ulElement[i].style.background = 'lightblue';
         var parrentUl = ulElement[2];
-        console.log(parrentUl);
+        // console.log(parrentUl);
         var liChild = parrentUl.getElementsByTagName('li');
-        console.log(liChild);
+        // console.log(liChild);
         for (var li = 0; li < liChild.length; li++) {
-            console.log(liChild[li]);
+            // console.log(liChild[li]);
             var textNode = document.textContent = 'Hello!';
             liChild[2].innerHTML = textNode;
             liChild[2].style.background = 'coral';
@@ -881,21 +881,42 @@ parrent.after(afterElement);
 
 var bigBlock = document.querySelector('.big-block');
 var paragraph = bigBlock.querySelectorAll('p')[3];
-console.log(bigBlock.clientWidth);
-console.log(getComputedStyle(bigBlock).width + ' comuted style width');
+// console.log(bigBlock.clientWidth);
+// console.log(getComputedStyle(bigBlock).width + ' comuted style width');
 
 var innerBlock = document.querySelector('.inner-block');
 
 var scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
 
-console.log('Высота с учетом прокрутки: ' + scrollHeight); // Надёжно определить размер страницы с учетом прокрутки можно, взяв максимум из нескольких свойств:
+//   console.log( 'Высота с учетом прокрутки: ' + scrollHeight ); // Надёжно определить размер страницы с учетом прокрутки можно, взяв максимум из нескольких свойств:
 
-console.log('Текущая прокрутка сверху: ' + window.pageYOffset);
-console.log(document.documentElement.scrollTop + ' scroll'); // Текущая прокрутка сверху:
+//   console.log( 'Текущая прокрутка сверху: ' + window.pageYOffset );
+//   console.log(document.documentElement.scrollTop + ' scroll'); // Текущая прокрутка сверху:
 
-parrent.onclick = function () {
-    window.scrollTo(0, 100); // при нажатии на элемент вернет окно на заданую высоту от начала экрана
-};
+//   parrent.onclick = function() {
+//     window.scrollTo(0, 100); // при нажатии на элемент вернет окно на заданую высоту от начала экрана
+// }
+
+// innerBlock.onclick = function() {
+//    this.scrollIntoView(true);
+//    console.log(this.getBoundingClientRect());
+// }
+
+
+// Итого
+
+// Размеры:
+
+// Для получения размеров видимой части окна: document.documentElement.clientWidth/Height
+
+// Для получения размеров страницы с учётом прокрутки:
+
+// var scrollHeight = Math.max(
+//   document.body.scrollHeight, document.documentElement.scrollHeight,
+//   document.body.offsetHeight, document.documentElement.offsetHeight,
+//   document.body.clientHeight, document.documentElement.clientHeight
+// );
+
 
 // paragraph.style.border = '6px solid red';
 // console.log(paragraph.clientHeight);
@@ -931,3 +952,92 @@ parrent.onclick = function () {
 // console.log(innerBlock.offsetHeight + ' высота блока включая рамки');
 // console.log(innerBlock.offsetWidth + ' ширина блока включая рамки');
 // console.log(innerBlock.clientHeight + ' внутреняя высота блока');
+
+
+// getBoundingClientRect()   Координаты в окне
+
+
+// top – Y-координата верхней границы элемента,
+// left – X-координата левой границы,
+// right – X-координата правой границы,
+// bottom – Y-координата нижней границы.
+
+
+var rect = document.querySelector('.rect-block');
+console.log(rect.getBoundingClientRect());
+
+rect.onclick = function () {
+
+    console.log(this.getBoundingClientRect());
+};
+
+// function getBlock() {
+//     let heightRect = rect.clientHeight;
+//     let bodyHeight = pageYOffset;
+//     console.log(bodyHeight + ' body ');
+//     console.log(heightRect + ' rect');
+//     let topY = heightRect + pageYOffset;
+//     console.log(topY);
+//     if (bodyHeight <= topY) {
+//         rect.style.background = 'red';
+//     }
+// }
+// getBlock();
+
+
+// function getCoords(elem) { // кроме IE8-
+//     var box = elem.getBoundingClientRect();
+
+//     return {
+//       top: box.top + pageYOffset,
+//       left: box.left + pageXOffset
+//     };
+
+//   }
+
+//   console.log(getCoords(rect));
+
+
+function getDocumentScroll() {
+    var scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
+    return {
+        top: pageYOffset,
+        bottom: pageYOffset + document.documentElement.clientHeight,
+        height: scrollHeight
+    };
+}
+console.log(getDocumentScroll());
+
+var bot = rect.getBoundingClientRect();
+var resultCoords = bot.bottom;
+console.log(resultCoords);
+
+window.onscroll = function () {
+    var scrolled = window.pageYOffset || document.documentElement.scrollTop; // узнали сколько прокрутили в PX страницу
+    console.log(scrolled + ' px ' + resultCoords);
+    if (scrolled > resultCoords) {
+        rect.className = 'fixed';
+    } else {
+        rect.classList.remove('fixed');
+        rect.className = 'rect-block';
+    }
+};
+
+function makeRed(elem) {
+    this.classList.toggle('shadow');
+}
+
+bigBlock.addEventListener('click', makeRed);
+
+console.log(rect.getAttribute('data-ng-app'));
+
+var containerBlock = document.querySelectorAll('#messages-container .remove-button');
+for (var item = 0; item < containerBlock.length; item++) {
+    console.log(containerBlock[item]);
+    var buttons = containerBlock[item];
+
+    buttons.onclick = function () {
+        var el = this.parentNode;
+        el.parentNode.removeChild(el);
+    };
+}
