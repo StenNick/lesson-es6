@@ -809,111 +809,111 @@
 
 
 
-let ulElement = document.querySelectorAll('ul');
+// let ulElement = document.querySelectorAll('ul');
 
-function getAllUl() {
-    for (let i = 0; i < ulElement.length; i++) {
-        // console.log(ulElement[i]);
-        ulElement[i].style.background = 'lightblue';
-        let parrentUl = ulElement[2];
-        // console.log(parrentUl);
-        let liChild = parrentUl.getElementsByTagName('li');
-        // console.log(liChild);
-        for (let li = 0; li < liChild.length; li++) {
-            // console.log(liChild[li]);
-            let textNode = document.textContent = 'Hello!';
-            liChild[2].innerHTML = textNode;
-            liChild[2].style.background = 'coral';
-            liChild[2].onclick = function(){
-               let redBlock = document.createElement('div');
-                redBlock.className = 'red-block';
-                let alertMessage = redBlock.textContent = 'Внимание!';
-                redBlock.innerHTML = alertMessage;
-                this.appendChild(redBlock);
+// function getAllUl() {
+//     for (let i = 0; i < ulElement.length; i++) {
+//         // console.log(ulElement[i]);
+//         ulElement[i].style.background = 'lightblue';
+//         let parrentUl = ulElement[2];
+//         // console.log(parrentUl);
+//         let liChild = parrentUl.getElementsByTagName('li');
+//         // console.log(liChild);
+//         for (let li = 0; li < liChild.length; li++) {
+//             // console.log(liChild[li]);
+//             let textNode = document.textContent = 'Hello!';
+//             liChild[2].innerHTML = textNode;
+//             liChild[2].style.background = 'coral';
+//             liChild[2].onclick = function(){
+//                let redBlock = document.createElement('div');
+//                 redBlock.className = 'red-block';
+//                 let alertMessage = redBlock.textContent = 'Внимание!';
+//                 redBlock.innerHTML = alertMessage;
+//                 this.appendChild(redBlock);
                 
-            }
-        }
-    }
-}
+//             }
+//         }
+//     }
+// }
 
-getAllUl();
-
-
-const bigDiv = document.createElement('div');
-for (let i = 0; i < bigDiv.length; i++ ) {
-    bigDiv[i].appendChild(span);
-    document.body.appendChild(bigDiv);
-}
+// getAllUl();
 
 
-const mainElement = document.querySelectorAll('ul')[0];
-let  childElementOne = mainElement.children[0];
-
-childElementOne.style.background = '#b3dffc';
-childElementOne.style.color = '#333';
-
-let one = childElementOne.insertAdjacentHTML('beforeBegin', '<li class="before">перед элементом  beforeBegin  </li>');
-// найдем самый первый UL элемент из всех списков, найдем его первый дочерний элемент (0), и вставим ПЕРЕД ним множество новых li с чем либо
+// const bigDiv = document.createElement('div');
+// for (let i = 0; i < bigDiv.length; i++ ) {
+//     bigDiv[i].appendChild(span);
+//     document.body.appendChild(bigDiv);
+// }
 
 
-childElementOne.insertAdjacentHTML('afterBegin', '<li class="before-middle">в самое начало элемента  afterBegin </li>');
-// нашли 1й элемент, и вставили перед ним что либо
+// const mainElement = document.querySelectorAll('ul')[0];
+// let  childElementOne = mainElement.children[0];
 
-childElementOne.insertAdjacentHTML('beforeEnd', '<li class="after-middle">в конец  элемента  beforeEnd </li>');
+// childElementOne.style.background = '#b3dffc';
+// childElementOne.style.color = '#333';
 
-
-childElementOne.insertAdjacentHTML('afterEnd', '<li class="after-end">после элемента  afterEnd </li>');
-
-let parrent = document.querySelector('#parrent');
-
-
-let subElem = document.createElement('div');
-subElem.className = 'sub-block';
-subElem.textContent = 'append method';
-let fragment = document.createDocumentFragment(subElem);
-
-console.log(fragment);
-parrent.appendChild(fragment);
-
-let preElement = document.createElement('div');
-preElement.className = 'pre-block';
-preElement.textContent = 'prepend method';
-
-let afterElement = document.createElement('div');
-afterElement.className = 'after-element';
-afterElement.textContent = 'after element';
-
-let beforeElement = document.createElement('div');
-beforeElement.className = 'before-element';
-beforeElement.textContent = 'before element';
-
-let replaceElement = document.createElement('div');
-replaceElement.className = 'replace-element';
-replaceElement.textContent = ' I NEW ELEMENT ';
+// let one = childElementOne.insertAdjacentHTML('beforeBegin', '<li class="before">перед элементом  beforeBegin  </li>');
+// // найдем самый первый UL элемент из всех списков, найдем его первый дочерний элемент (0), и вставим ПЕРЕД ним множество новых li с чем либо
 
 
+// childElementOne.insertAdjacentHTML('afterBegin', '<li class="before-middle">в самое начало элемента  afterBegin </li>');
+// // нашли 1й элемент, и вставили перед ним что либо
 
-parrent.append(subElem);
-parrent.prepend(preElement);
+// childElementOne.insertAdjacentHTML('beforeEnd', '<li class="after-middle">в конец  элемента  beforeEnd </li>');
 
-parrent.before(beforeElement);
-parrent.after(afterElement);
+
+// childElementOne.insertAdjacentHTML('afterEnd', '<li class="after-end">после элемента  afterEnd </li>');
+
+// let parrent = document.querySelector('#parrent');
+
+
+// let subElem = document.createElement('div');
+// subElem.className = 'sub-block';
+// subElem.textContent = 'append method';
+// let fragment = document.createDocumentFragment(subElem);
+
+// console.log(fragment);
+// parrent.appendChild(fragment);
+
+// let preElement = document.createElement('div');
+// preElement.className = 'pre-block';
+// preElement.textContent = 'prepend method';
+
+// let afterElement = document.createElement('div');
+// afterElement.className = 'after-element';
+// afterElement.textContent = 'after element';
+
+// let beforeElement = document.createElement('div');
+// beforeElement.className = 'before-element';
+// beforeElement.textContent = 'before element';
+
+// let replaceElement = document.createElement('div');
+// replaceElement.className = 'replace-element';
+// replaceElement.textContent = ' I NEW ELEMENT ';
 
 
 
-let bigBlock = document.querySelector('.big-block');
-let paragraph = bigBlock.querySelectorAll('p')[3];
-// console.log(bigBlock.clientWidth);
-// console.log(getComputedStyle(bigBlock).width + ' comuted style width');
+// parrent.append(subElem);
+// parrent.prepend(preElement);
 
-let innerBlock = document.querySelector('.inner-block');
+// parrent.before(beforeElement);
+// parrent.after(afterElement);
 
 
-var scrollHeight = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight
-  );
+
+// let bigBlock = document.querySelector('.big-block');
+// let paragraph = bigBlock.querySelectorAll('p')[3];
+// // console.log(bigBlock.clientWidth);
+// // console.log(getComputedStyle(bigBlock).width + ' comuted style width');
+
+// let innerBlock = document.querySelector('.inner-block');
+
+
+// var scrollHeight = Math.max(
+//     document.body.scrollHeight, document.documentElement.scrollHeight,
+//     document.body.offsetHeight, document.documentElement.offsetHeight,
+//     document.body.clientHeight, document.documentElement.clientHeight
+//   );
   
 //   console.log( 'Высота с учетом прокрутки: ' + scrollHeight ); // Надёжно определить размер страницы с учетом прокрутки можно, взяв максимум из нескольких свойств:
 
@@ -999,15 +999,15 @@ var scrollHeight = Math.max(
 // bottom – Y-координата нижней границы.
 
 
-let rect = document.querySelector('.rect-block');
-console.log(rect.getBoundingClientRect());
+// let rect = document.querySelector('.rect-block');
+// console.log(rect.getBoundingClientRect());
 
-rect.onclick = function () {
+// rect.onclick = function () {
  
-    console.log(this.getBoundingClientRect())
+//     console.log(this.getBoundingClientRect())
   
 
-}
+// }
 
 
 // function getBlock() {
@@ -1038,55 +1038,178 @@ rect.onclick = function () {
 
 
 
-function getDocumentScroll() {
-     var scrollHeight = Math.max(
-      document.body.scrollHeight, document.documentElement.scrollHeight,
-      document.body.offsetHeight, document.documentElement.offsetHeight,
-      document.body.clientHeight, document.documentElement.clientHeight
-    );
-    return {
-      top: pageYOffset,
-      bottom: pageYOffset + document.documentElement.clientHeight,
-      height: scrollHeight
-    };
-  }
-console.log(  getDocumentScroll());
+// function getDocumentScroll() {
+//      var scrollHeight = Math.max(
+//       document.body.scrollHeight, document.documentElement.scrollHeight,
+//       document.body.offsetHeight, document.documentElement.offsetHeight,
+//       document.body.clientHeight, document.documentElement.clientHeight
+//     );
+//     return {
+//       top: pageYOffset,
+//       bottom: pageYOffset + document.documentElement.clientHeight,
+//       height: scrollHeight
+//     };
+//   }
+// console.log(  getDocumentScroll());
 
 
-let bot = rect.getBoundingClientRect();
-let resultCoords = bot.bottom;
-console.log(resultCoords);
+// let bot = rect.getBoundingClientRect();
+// let resultCoords = bot.bottom;
+// console.log(resultCoords);
 
-window.onscroll = function() {
-    var scrolled = window.pageYOffset || document.documentElement.scrollTop; // узнали сколько прокрутили в PX страницу
-   console.log(scrolled + ' px ' + resultCoords);
-   if (scrolled > resultCoords) {
-       rect.className ='fixed';
-   } else {
-       rect.classList.remove('fixed');
-       rect.className = 'rect-block';
-   }
-  }
+// // window.onscroll = function() {
+// //     var scrolled = window.pageYOffset || document.documentElement.scrollTop; // узнали сколько прокрутили в PX страницу
+// //    console.log(scrolled + ' px ' + resultCoords);
+// //    if (scrolled > resultCoords) {
+// //        rect.className ='fixed';
+// //    } else {
+// //        rect.classList.remove('fixed');
+// //        rect.className = 'rect-block';
+// //    }
+// //   }
 
-function makeRed(elem) {
-    this.classList.toggle('shadow');
-}
-
-
-
-bigBlock.addEventListener('click', makeRed);
-
-console.log(rect.getAttribute('data-ng-app'));
+// function makeRed(elem) {
+//     this.classList.toggle('shadow');
+// }
 
 
 
-let containerBlock = document.querySelectorAll('#messages-container .remove-button');
-for (let item = 0; item < containerBlock.length; item++) {
-    console.log(containerBlock[item]);
-    let buttons = containerBlock[item];
+// bigBlock.addEventListener('click', makeRed);
 
-    buttons.onclick = function() {
-        let el = this.parentNode;
-        el.parentNode.removeChild(el);
+// console.log(rect.getAttribute('data-ng-app'));
+
+
+
+// let containerBlock = document.querySelectorAll('#messages-container .remove-button');
+// for (let item = 0; item < containerBlock.length; item++) {
+//     console.log(containerBlock[item]);
+//     let buttons = containerBlock[item];
+
+//     buttons.onclick = function() {
+//         let el = this.parentNode;
+//         el.parentNode.removeChild(el);
+//     }
+// }
+
+
+// let down = document.querySelector('.down');
+// let heightParrent = parrent.getBoundingClientRect();
+
+
+// function scrollWin() {
+//     window.scrollTo(0, heightParrent.top); // перейти к верхней границе элемента
+// }
+
+// down.addEventListener('click', scrollWin); // при нажатии на кнопку down мы переходи к элементу в самом низу, к его верхней границе
+
+
+// window  ONSCROLL - ПОКАЗЫВАЕТ СКОЛЬКО БЫЛО ПРОКРУЧЕННО ПИКСЛЕЙ НА ЭЛЕМЕНТЕ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+// function makeFixed() {
+//     let relativeBlock = document.querySelector('.barSide');
+//     let toPoint = relativeBlock.getBoundingClientRect().top + window.pageYOffset;
+//     window.onscroll = function() {
+//         var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+//         if (scrolled >= toPoint && relativeBlock.classList.contains('barSide')) {
+//             relativeBlock.classList.remove('barSide');
+//             relativeBlock.className = 'fixedBlock';
+//         } else if (scrolled <= toPoint && relativeBlock.classList.contains('fixedBlock')) {
+//             relativeBlock.classList.remove('fixedBlock');
+//             relativeBlock.className = 'barSide';
+//         }
+//     }
+// }
+// makeFixed(); // создали блок, который прилипает если высотра страницы больше или равна верхней точке рекламного блока
+
+
+
+
+
+// window.onscroll = function() {
+//     var scrolled = window.pageYOffset || document.documentElement.scrollTop; // узнали сколько прокрутили в PX страницу
+//    console.log(scrolled + ' px ');
+// }
+
+// узнаем по каком элементу был Клик
+
+// function getTypeEvent() {
+//     let sub = document.querySelector('.sub-inner');
+//     sub.onclick = function(event){
+//         console.log(event.type + ' on ' + event.currentTarget); //  click on [object HTMLDivElement]
+//     }
+//     let clickDoc = document.documentElement;
+//     clickDoc.onclick = function(ev) {
+//         console.log(ev.clientX + ' ' + ev.clientY); // узнаем координаты документа при клике
+//     }
+// }
+// getTypeEvent();
+
+
+
+
+// function changeColor(e) {
+// let external = document.querySelector('.external'); // найдем родителя
+//     external.onclick = function(event) {
+//         console.log(event.type + ' ' + event.target.tagName); // сможем найти все вложенные элементы (дочерние)
+//     }
+
+//    // узнаем по какому элементу был клик или событие
+       
+// }
+
+
+
+// let messBox = document.getElementById('messages-container'); // нашли элемент
+
+// messBox.onclick = function(event) {
+    
+//     console.log('на что кликнули ' + event.target.tagName + ' this = ' + this.tagName); // узнали на что нажали, и какой родитель у элементов
+// }
+
+
+
+
+
+
+let main = document.querySelector('.main');
+let subEl = document.querySelectorAll('.sub');
+let spanText = document.querySelectorAll('.span-text');
+
+
+function getMain(){
+main.addEventListener('click', function(event) {
+    console.log(this.tagName);
+    if (event.target == this) {
+        event.target.style.background = 'yellow';
     }
+
+    for (let i = 0; i < spanText.length; i++) {
+        let allSpan = spanText[i];
+        if (! allSpan) return;
+        if (allSpan == event.target) {
+            event.target.style.background = 'red';
+        }  
+    }
+});
 }
+
+
+function blueBlock(){
+    for(let a = 0; a < subEl.length; a++) {
+        let allSub = subEl[a];
+        allSub.addEventListener('click', function(event){
+        if (!allSub) return;
+        if (allSub == event.target) {
+            event.target.style.background = 'blue';
+        }
+    });
+}
+} 
+       
+function init(){
+    blueBlock();
+    getMain();
+}
+init();

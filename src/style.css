@@ -236,3 +236,108 @@ body * .container .child-block {
   .pane .remove-button:hover{
       cursor: pointer;
   }
+
+  .down{
+      display: block;
+      padding: 10px 20px;
+      background: #50b3f4;
+      color: #fff;
+      border: none;
+      position: fixed;
+      top: 50px;
+      right: 50px;
+  }
+
+  .down:hover {
+      cursor: pointer;
+      box-shadow: 0 2px 2px #333;
+  }
+
+.barSide{
+    height: 400px;
+    width: 200px;
+    padding: 20px;
+    background: #53b8fc;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    left: 50px;
+    top: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.fixedBlock{
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    height: 400px;
+    width: 200px;
+    padding: 20px;
+    background: #53b8fc;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.external {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+    background: #f97a91;
+}
+
+  .external .inner{
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      background: #a77af9;
+      padding: 10px;
+  }
+
+  .external .inner .sub-inner{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    background: #7ab3f9;
+    padding: 10px;
+  }
+
+
+  .changeColor{
+      background: 'red';
+  }
+
+
+  .main{
+      height: auto;
+      min-height: 500px;
+      width: 600px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center;
+      border: 2px solid #333;
+      margin: 20px auto;
+  }
+
+  .main .sub{
+      width: 30%;
+      height: auto;
+      padding: 10px;
+      background: #665577;
+      margin: 2px;
+      border: 2px solid #7ab3f9;
+  }
+
+  .main .sub .span-text{
+      display: block;
+      background: #fff;
+      margin: auto;
+      padding: 10px;
+      border: 1px solid #333;
+      text-align: center;
+  }
