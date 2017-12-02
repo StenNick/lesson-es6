@@ -92,3 +92,18 @@ body * .container .child-block {
       text-align: center;
       padding: 20px;
   }
+
+
+  .cup{
+    width: 300px;
+    height: auto;
+    margin: 30px auto;
+    display: block;
+  }
+
+
+
+ #test li{
+    padding: 10px;
+    border: 1px solid #333;
+  }

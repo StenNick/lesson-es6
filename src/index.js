@@ -763,39 +763,89 @@ for (var item = 0; item < outerLink.length; item++) {
 
 // КЛОНИРОВАНИЕ УЗЛОВ cloneNode
 
-let alertMessage = document.querySelector('.alert');
-let newAlert = document.createElement('li');
-newAlert.className = ' danger';
-newAlert.innerHTML = ' DANGER! '; // создали новый элементо/узел, дали ему текст
+// let alertMessage = document.querySelector('.alert');
+// let newAlert = document.createElement('li');
+// newAlert.className = ' danger';
+// newAlert.innerHTML = ' DANGER! '; // создали новый элементо/узел, дали ему текст
 
 
-alertMessage.appendChild(newAlert);
+// alertMessage.appendChild(newAlert);
 
-let cloneAlert = newAlert.cloneNode(true); // клонируем новый элемент и даем новый текстовый узел
-cloneAlert.innerHTML = 'Homer Simpson';
+// let cloneAlert = newAlert.cloneNode(true); // клонируем новый элемент и даем новый текстовый узел
+// cloneAlert.innerHTML = 'Homer Simpson';
 
-alertMessage.insertBefore(cloneAlert, alertMessage.firstChild); // вставим в самое начало наш КЛОНИРОВАННЫЙ узел
+// alertMessage.insertBefore(cloneAlert, alertMessage.firstChild); // вставим в самое начало наш КЛОНИРОВАННЫЙ узел
 
 
-let numbresUl = document.querySelector('.numbres');
+// let numbresUl = document.querySelector('.numbres');
 
-let subelements = numbresUl.getElementsByTagName('li');
-for (var i = 0; i < subelements.length; i++) {
-    console.log(subelements[i]);
-    numbresUl.insertBefore(cloneAlert, subelements[2]);
-    let numberThree = subelements[3];
-    numberThree.style.background = '#5cb6f2';
-    let lastElement = subelements.length - 1;
-    numberThree.onclick = function(){
-        // numbresUl.removeChild(subelements[0]); // удаляем элемент с момщью removeChild
-        this.remove(lastElement);
-    }
+// let subelements = numbresUl.getElementsByTagName('li');
+// for (var i = 0; i < subelements.length; i++) {
+//     console.log(subelements[i]);
+//     numbresUl.insertBefore(cloneAlert, subelements[2]);
+//     let numberThree = subelements[3];
+//     numberThree.style.background = '#5cb6f2';
+//     let lastElement = subelements.length - 1;
+//     numberThree.onclick = function(){
+//         // numbresUl.removeChild(subelements[0]); // удаляем элемент с момщью removeChild
+//         this.remove(lastElement);
+//     }
     
-}
+// }
 
-let textMess = document.createTextNode('Hidden block');
-let hiddenBlock = document.querySelector('.hiddenBlock');
-hiddenBlock.appendChild(textMess);
-setTimeout(() => {
-   document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
-}, 3000);
+// let textMess = document.createTextNode('Hidden block');
+// let hiddenBlock = document.querySelector('.hiddenBlock');
+// hiddenBlock.appendChild(textMess);
+// setTimeout(() => {
+//    document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
+// }, 3000);
+
+
+
+
+
+let text = document.querySelector('p');
+let press = document.querySelector('#press');
+
+document.addEventListener('keypress', (event) => {
+    const keyName = event.key;
+    console.log('keypress event\n\n' + 'key: ' + keyName);
+
+  });
+press.addEventListener('click', function(){
+    text.textContent = 'Some change text here!';
+})
+
+
+
+
+
+
+
+
+
+var test = document.getElementById("test");
+
+
+// this handler will be executed only once when the cursor moves over the unordered list
+test.addEventListener("mouseenter", function( event ) {   
+  // highlight the mouseenter target
+  event.target.style.background = "purple";
+
+  // reset the color after a short delay
+  setTimeout(function() {
+    event.target.style.background = "";
+  }, 500);
+}, false);
+
+
+// this handler will be executed every time the cursor is moved over a different list item
+test.addEventListener("mouseover", function( event ) {   
+  // highlight the mouseover target
+  event.target.style.background = "orange";
+
+  // reset the color after a short delay
+  setTimeout(function() {
+    event.target.style.background = "";
+  }, 500);
+}, false);
