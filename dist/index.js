@@ -1143,17 +1143,22 @@ function getMain() {
     main.addEventListener('click', function (event) {
         console.log(this.tagName);
         if (event.target == this) {
-            event.target.style.background = 'yellow';
-        }
-
-        for (var i = 0; i < spanText.length; i++) {
-            var allSpan = spanText[i];
-            if (!allSpan) return;
-            if (allSpan == event.target) {
-                event.target.style.background = 'red';
-            }
+            event.target.classList.toggle('yellowBlock');
         }
     });
+}
+
+function redBlock() {
+    for (var i = 0; i < spanText.length; i++) {
+        var allSpan = spanText[i];
+        allSpan.addEventListener('click', function (event) {
+            if (!this == event.target) return;
+            if (this == event.target) {
+                console.log(event.target);
+                event.target.classList.toggle('someColor');
+            }
+        });
+    }
 }
 
 function blueBlock() {
@@ -1161,8 +1166,9 @@ function blueBlock() {
         var allSub = subEl[a];
         allSub.addEventListener('click', function (event) {
             if (!allSub) return;
-            if (allSub == event.target) {
-                event.target.style.background = 'blue';
+            if (this == event.target) {
+                console.log(event.target);
+                event.target.style.background = 'lightblue';
             }
         });
     };
@@ -1174,6 +1180,70 @@ function blueBlock() {
 
 function init() {
     blueBlock();
+    redBlock();
     getMain();
 }
 init();
+
+var txt = document.querySelector('.text');
+
+function Menu(option) {
+
+    var elem = option.elem;
+
+    elem.onclick = function (event) {
+
+        if (event.target.closest('.title')) {
+            elem.classList.toggle('open');
+        }
+    };
+}
+
+var menu = new Menu({
+    elem: txt
+});
+
+function getChildren() {
+    var targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
+
+    var _loop2 = function _loop2(i) {
+        // узнали сколько их и применили к ним обработчик событий для каждого
+        targetElem[i].onclick = function (event) {
+            if (event.target.closest('.parent')) {
+                // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
+                targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
+            }
+        };
+    };
+
+    for (var i = 0; i < targetElem.length; i++) {
+        _loop2(i);
+    }
+}getChildren();
+
+var outerBlock = document.querySelector('.outer-block');
+var subBlock = document.querySelectorAll('.sub-block');
+var childrenBlock = document.querySelectorAll('.children-block');
+
+function ChangeElement(options) {
+    debugger;
+    var elem = options.elem;
+
+    debugger;
+    elem.onclick = function (event) {
+        if (event.target.closest('body')) {
+            toggleElement();
+            console.log(this.tagName);
+        }
+    };
+    function toggleElement() {
+        debugger;
+        elem.classList.toggle('someColor');
+    }
+    this.toggleElement = toggleElement;
+}
+
+var change = new ChangeElement({
+    elem: outerBlock
+});
+// change.toggleElement();
