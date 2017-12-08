@@ -1140,85 +1140,86 @@ var subEl = document.querySelectorAll('.sub');
 var spanText = document.querySelectorAll('.span-text');
 
 function getMain() {
-    main.addEventListener('click', function (event) {
-        console.log(this.tagName);
-        if (event.target == this) {
-            event.target.classList.toggle('yellowBlock');
-        }
-    });
+  main.addEventListener('click', function (event) {
+    console.log(this.tagName);
+    if (event.target == this) {
+      event.target.classList.toggle('yellowBlock');
+    }
+  });
 }
 
 function redBlock() {
-    for (var i = 0; i < spanText.length; i++) {
-        var allSpan = spanText[i];
-        allSpan.addEventListener('click', function (event) {
-            if (!this == event.target) return;
-            if (this == event.target) {
-                console.log(event.target);
-                event.target.classList.toggle('someColor');
-            }
-        });
-    }
+  for (var i = 0; i < spanText.length; i++) {
+    var allSpan = spanText[i];
+    allSpan.addEventListener('click', function (event) {
+      if (!this == event.target) return;
+      if (this == event.target) {
+        console.log(event.target);
+        event.target.classList.toggle('someColor');
+      }
+    });
+  }
 }
 
 function blueBlock() {
-    var _loop = function _loop(a) {
-        var allSub = subEl[a];
-        allSub.addEventListener('click', function (event) {
-            if (!allSub) return;
-            if (this == event.target) {
-                console.log(event.target);
-                event.target.style.background = 'lightblue';
-            }
-        });
-    };
+  var _loop = function _loop(a) {
+    var allSub = subEl[a];
+    allSub.addEventListener('click', function (event) {
+      if (!allSub) return;
+      if (this == event.target) {
+        console.log(event.target);
+        event.target.style.background = 'lightblue';
+      }
+    });
+  };
 
-    for (var a = 0; a < subEl.length; a++) {
-        _loop(a);
-    }
+  for (var a = 0; a < subEl.length; a++) {
+    _loop(a);
+  }
 }
 
 function init() {
-    blueBlock();
-    redBlock();
-    getMain();
+  blueBlock();
+  redBlock();
+  getMain();
 }
 init();
 
 var txt = document.querySelector('.text');
 
-function Menu(option) {
+// function Menu(option) {
 
-    var elem = option.elem;
+//     let elem = option.elem;
 
-    elem.onclick = function (event) {
+//     elem.onclick = function(event) {
 
-        if (event.target.closest('.title')) {
-            elem.classList.toggle('open');
-        }
-    };
-}
+//         if (event.target.closest('.title')) {
+//             elem.classList.toggle('open');
+//         }
+//     }
+// }
 
-var menu = new Menu({
-    elem: txt
-});
+// var menu = new Menu({
+//     elem: txt
+//   });
+
 
 function getChildren() {
-    var targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
+  var targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
 
-    var _loop2 = function _loop2(i) {
-        // узнали сколько их и применили к ним обработчик событий для каждого
-        targetElem[i].onclick = function (event) {
-            if (event.target.closest('.parent')) {
-                // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
-                targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
-            }
-        };
+  var _loop2 = function _loop2(i) {
+    // узнали сколько их и применили к ним обработчик событий для каждого
+    targetElem[i].onclick = function (event) {
+      if (event.target.closest('.parent')) {
+        // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
+        targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
+      }
     };
+  };
 
-    for (var i = 0; i < targetElem.length; i++) {
-        _loop2(i);
-    }
+  for (var i = 0; i < targetElem.length; i++) {
+    _loop2(i);
+  }
 }getChildren();
 
 var outerBlock = document.querySelector('.outer-block');
@@ -1226,24 +1227,163 @@ var subBlock = document.querySelectorAll('.sub-block');
 var childrenBlock = document.querySelectorAll('.children-block');
 
 function ChangeElement(options) {
-    debugger;
-    var elem = options.elem;
-
-    debugger;
-    elem.onclick = function (event) {
-        if (event.target.closest('body')) {
-            toggleElement();
-            console.log(this.tagName);
-        }
-    };
-    function toggleElement() {
-        debugger;
-        elem.classList.toggle('someColor');
+  var elem = options.elem;
+  elem.onclick = function (event) {
+    if (event.target.closest('body')) {
+      toggleElement();
+      console.log(this.tagName);
     }
-    this.toggleElement = toggleElement;
+  };
+  function toggleElement() {
+
+    elem.classList.toggle('someColor');
+  }
+  this.toggleElement = toggleElement;
 }
 
+// function getAllElements(element){
+//     if (outerBlock.hasChildNodes(subBlock) && outerBlock.hasChildNodes(childrenBlock)) {
+//     for(let i = 0; i < element.length; i++) {
+//         console.log(element[i]);
+//         ChangeElement( element[i]);
+//      }
+//     }
+// }
+
+// getAllElements(subBlock);
+// getAllElements(childrenBlock);
+
+
 var change = new ChangeElement({
-    elem: outerBlock
+  elem: outerBlock
 });
-// change.toggleElement();
+change.toggleElement();
+
+var containerList = document.createElement('div');
+containerList.className = 'container-list';
+
+var menu = new Menu({
+  title: 'Search',
+  items: ['Rambler', 'Yandex', 'Google', 'Yahoo']
+});
+
+var elem = menu.getElem();
+document.body.appendChild(elem);
+
+// function Menu(option) {
+//     let elem;
+
+//     function render() {
+//         elem = document.createElement('div');
+//         elem.className = 'menu';
+
+//         let titleElem = document.createElement('span');
+//         titleElem.className = 'title';
+//         elem.appendChild(titleElem);
+//         titleElem.textContent = option.title;
+
+//     }
+
+
+//     elem.onclick = function(event) {
+//         if (event.target.closest('.title')) {
+//             toggle();
+//         }
+//     }
+
+
+// function renderItems() {
+//     let items = option || [];
+//     let list = document.createElement('ul');
+//     items.forEach(function(item) {
+//         let li = document.createElement('li');
+//         li.textContent = item;
+//         list.appendChild(li);
+//     });
+//     elem.appendChild(list);
+// }
+
+
+// function close() {
+//     elem.classList.remove('open');
+// }
+
+// function open() {
+//     if (!elem.querySelector('ul')) {
+//         renderItems();
+//     }
+//     elem.classList.add('open');
+// }
+
+// function toggle() {
+//     if (elem.classList.contains('open')) close();
+//     else open();
+//  }
+
+//  this.getElem = getElem;
+//  this.toggle = toggle;
+//  this.close = close;
+//  this.open = open;
+
+// }
+
+
+function Menu(options) {
+  var elem;
+
+  function getElem() {
+    if (!elem) render();
+    return elem;
+  }
+
+  function render() {
+    elem = document.createElement('div');
+    elem.className = "menu";
+
+    var titleElem = document.createElement('span');
+    elem.appendChild(titleElem);
+    titleElem.className = "title";
+    titleElem.textContent = options.title;
+
+    elem.onmousedown = function () {
+      return false;
+    };
+
+    elem.onclick = function (event) {
+      if (event.target.closest('.title')) {
+        toggle();
+      }
+    };
+  }
+
+  function renderItems() {
+    var items = options.items || [];
+    var list = document.createElement('ul');
+    items.forEach(function (item) {
+      var li = document.createElement('li');
+      li.textContent = item;
+      list.appendChild(li);
+    });
+    elem.appendChild(list);
+  }
+
+  function open() {
+    if (!elem.querySelector('ul')) {
+      renderItems();
+    }
+    elem.classList.add('open');
+  };
+
+  function close() {
+    elem.classList.remove('open');
+  };
+
+  function toggle() {
+    if (elem.classList.contains('open')) close();else open();
+  };
+
+  this.getElem = getElem;
+  this.toggle = toggle;
+  this.close = close;
+  this.open = open;
+}

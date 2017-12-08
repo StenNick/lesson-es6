@@ -1222,21 +1222,21 @@ init();
 
 let txt = document.querySelector('.text');
 
-function Menu(option) {
+// function Menu(option) {
  
-    let elem = option.elem;
+//     let elem = option.elem;
   
-    elem.onclick = function(event) {
+//     elem.onclick = function(event) {
      
-        if (event.target.closest('.title')) {
-            elem.classList.toggle('open');
-        }
-    }
-}
+//         if (event.target.closest('.title')) {
+//             elem.classList.toggle('open');
+//         }
+//     }
+// }
 
-var menu = new Menu({
-    elem: txt
-  });
+// var menu = new Menu({
+//     elem: txt
+//   });
 
 
 
@@ -1260,25 +1260,179 @@ let outerBlock = document.querySelector('.outer-block');
 let subBlock = document.querySelectorAll('.sub-block');
 let childrenBlock = document.querySelectorAll('.children-block');
 
+
 function ChangeElement(options) {
-    debugger
-    const elem = options.elem;
-     
-    debugger
-    elem.onclick = function(event){
-        if (event.target.closest('body')) {
-             toggleElement();
-            console.log(this.tagName)
+        const elem = options.elem;  
+        elem.onclick = function(event){
+            if (event.target.closest('body')) {
+                 toggleElement();
+                console.log(this.tagName)
+            }
+        };
+        function toggleElement(){
+          
+            elem.classList.toggle('someColor');
         }
-    };
-    function toggleElement(){
-        debugger
-        elem.classList.toggle('someColor');
+        this.toggleElement = toggleElement;
     }
-    this.toggleElement = toggleElement;
-}
+
+
+// function getAllElements(element){
+//     if (outerBlock.hasChildNodes(subBlock) && outerBlock.hasChildNodes(childrenBlock)) {
+//     for(let i = 0; i < element.length; i++) {
+//         console.log(element[i]);
+//         ChangeElement( element[i]);
+//      }
+//     }
+// }
+
+// getAllElements(subBlock);
+// getAllElements(childrenBlock);
+
+
 
 const change = new ChangeElement({
     elem: outerBlock
 });
-// change.toggleElement();
+change.toggleElement();
+
+
+
+let containerList = document.createElement('div');
+containerList.className = 'container-list';
+
+let menu = new Menu({
+    title: 'Search',
+    items: [
+        'Rambler',
+        'Yandex',
+        'Google',
+        'Yahoo'
+    ]
+});
+
+let elem = menu.getElem();
+document.body.appendChild(elem);
+
+
+// function Menu(option) {
+//     let elem;
+
+//     function render() {
+//         elem = document.createElement('div');
+//         elem.className = 'menu';
+
+//         let titleElem = document.createElement('span');
+//         titleElem.className = 'title';
+//         elem.appendChild(titleElem);
+//         titleElem.textContent = option.title;
+        
+//     }
+
+
+//     elem.onclick = function(event) {
+//         if (event.target.closest('.title')) {
+//             toggle();
+//         }
+//     }
+
+
+
+
+// function renderItems() {
+//     let items = option || [];
+//     let list = document.createElement('ul');
+//     items.forEach(function(item) {
+//         let li = document.createElement('li');
+//         li.textContent = item;
+//         list.appendChild(li);
+//     });
+//     elem.appendChild(list);
+// }
+
+
+// function close() {
+//     elem.classList.remove('open');
+// }
+
+// function open() {
+//     if (!elem.querySelector('ul')) {
+//         renderItems();
+//     }
+//     elem.classList.add('open');
+// }
+
+// function toggle() {
+//     if (elem.classList.contains('open')) close();
+//     else open();
+//  }
+
+//  this.getElem = getElem;
+//  this.toggle = toggle;
+//  this.close = close;
+//  this.open = open;
+
+// }
+
+
+function Menu(options) {
+    var elem;
+  
+    function getElem() {
+      if (!elem) render();
+      return elem;
+    }
+  
+    function render() {
+      elem = document.createElement('div');
+      elem.className = "menu";
+  
+      var titleElem = document.createElement('span');
+      elem.appendChild(titleElem);
+      titleElem.className = "title";
+      titleElem.textContent = options.title;
+  
+      elem.onmousedown = function() {
+        return false;
+      };
+  
+      elem.onclick = function(event) {
+        if (event.target.closest('.title')) {
+          toggle();
+        }
+      }
+  
+    }
+  
+    function renderItems() {
+      var items = options.items || [];
+      var list = document.createElement('ul');
+      items.forEach(function(item) {
+        var li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+      });
+      elem.appendChild(list);
+    }
+  
+    function open() {
+      if (!elem.querySelector('ul')) {
+        renderItems();
+      }
+      elem.classList.add('open');
+    };
+  
+    function close() {
+      elem.classList.remove('open');
+    };
+  
+    function toggle() {
+      if (elem.classList.contains('open')) close();
+      else open();
+    };
+  
+    this.getElem = getElem;
+    this.toggle = toggle;
+    this.close = close;
+    this.open = open;
+  }
