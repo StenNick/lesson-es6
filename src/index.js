@@ -1211,45 +1211,268 @@
 
 
 
-
-let main = document.querySelector('.main');
-let subEl = document.querySelectorAll('.sub');
-let spanText = document.querySelectorAll('.span-text');
-
-
-function getMain(){
-main.addEventListener('click', function(event) {
-    console.log(this.tagName);
-    if (event.target == this) {
-        event.target.style.background = 'yellow';
-    }
-
-    for (let i = 0; i < spanText.length; i++) {
-        let allSpan = spanText[i];
-        if (! allSpan) return;
-        if (allSpan == event.target) {
-            event.target.style.background = 'red';
-        }  
-    }
-});
-}
+// let main = document.querySelector('.main');
+// let subEl = document.querySelectorAll('.sub');
+// let spanText = document.querySelectorAll('.span-text');
 
 
-function blueBlock(){
-    for(let a = 0; a < subEl.length; a++) {
-        let allSub = subEl[a];
-        allSub.addEventListener('click', function(event){
-        if (!allSub) return;
-        if (allSub == event.target) {
-            event.target.style.background = 'blue';
-        }
-    });
-}
-} 
+// function getMain(){
+// main.addEventListener('click', function(event) {
+//     console.log(this.tagName);
+//     if (event.target == this) {
+//         event.target.classList.toggle('yellowBlock');
+//     } 
+// });
+// }
+
+
+// function redBlock(){
+//     for (let i = 0; i < spanText.length; i++) {
+//         let allSpan = spanText[i];
+//         allSpan.addEventListener('click', function(event){
+//             if (!this == event.target) return;
+//             if (this == event.target) {
+//                 console.log(event.target);
+//                 event.target.classList.toggle('someColor');
+//             }
+//         });   
+//     }
+// }
+
+// function blueBlock(){
+//     for(let a = 0; a < subEl.length; a++) {
+//         let allSub = subEl[a];
+//         allSub.addEventListener('click', function(event){
+//         if (!allSub) return;
+//         if (this == event.target) {
+//             console.log(event.target);
+//             event.target.style.background = 'lightblue';
+//         }
+//     });
+// }
+// } 
        
-function init(){
-    blueBlock();
-    getMain();
-}
-init();
+// function init(){
+//     blueBlock();
+//     redBlock();
+//     getMain();
+// }
+// init();
+
+
+// function Menu(option) {
+ 
+//     let elem = option.elem;
+  
+//     elem.onclick = function(event) {
+     
+//         if (event.target.closest('.title')) {
+//             elem.classList.toggle('open');
+//         }
+//     }
+// }
+
+// var menu = new Menu({
+//     elem: txt
+//   });
+
+
+
+
+
+//   function getChildren(){
+//   let targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
+//  for (let i = 0; i < targetElem.length; i++) { // узнали сколько их и применили к ним обработчик событий для каждого
+//   targetElem[i].onclick = function(event) { 
+//       if (event.target.closest('.parent')) { // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
+//         targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
+//       }
+//   };
+// }
+
+// }  getChildren();
+
+
+
+// let outerBlock = document.querySelector('.outer-block');
+// let subBlock = document.querySelectorAll('.sub-block');
+// let childrenBlock = document.querySelectorAll('.children-block');
+
+
+// function ChangeElement(options) {
+//         const elem = options.elem;  
+//         elem.onclick = function(event){
+//             if (event.target.closest('body')) {
+//                  toggleElement();
+//                 console.log(this.tagName)
+//             }
+//         };
+//         function toggleElement(){
+          
+//             elem.classList.toggle('someColor');
+//         }
+//         this.toggleElement = toggleElement;
+//     }
+
+
+// function getAllElements(element){
+//     if (outerBlock.hasChildNodes(subBlock) && outerBlock.hasChildNodes(childrenBlock)) {
+//     for(let i = 0; i < element.length; i++) {
+//         console.log(element[i]);
+//         ChangeElement( element[i]);
+//      }
+//     }
+// }
+
+// getAllElements(subBlock);
+// getAllElements(childrenBlock);
+
+
+
+// const change = new ChangeElement({
+//     elem: outerBlock
+// });
+// change.toggleElement();
+
+
+
+// let containerList = document.createElement('div');
+// containerList.className = 'container-list';
+
+// let menu = new Menu({
+//     title: 'Search',
+//     items: [
+//         'Rambler',
+//         'Yandex',
+//         'Google',
+//         'Yahoo'
+//     ]
+// });
+
+// let elem = menu.getElem();
+// document.body.appendChild(elem);
+
+
+// function Menu(option) {
+//     let elem;
+
+//     function render() {
+//         elem = document.createElement('div');
+//         elem.className = 'menu';
+
+//         let titleElem = document.createElement('span');
+//         titleElem.className = 'title';
+//         elem.appendChild(titleElem);
+//         titleElem.textContent = option.title;
+        
+//     }
+
+
+//     elem.onclick = function(event) {
+//         if (event.target.closest('.title')) {
+//             toggle();
+//         }
+//     }
+
+
+
+
+// function renderItems() {
+//     let items = option || [];
+//     let list = document.createElement('ul');
+//     items.forEach(function(item) {
+//         let li = document.createElement('li');
+//         li.textContent = item;
+//         list.appendChild(li);
+//     });
+//     elem.appendChild(list);
+// }
+
+
+// function close() {
+//     elem.classList.remove('open');
+// }
+
+// function open() {
+//     if (!elem.querySelector('ul')) {
+//         renderItems();
+//     }
+//     elem.classList.add('open');
+// }
+
+// function toggle() {
+//     if (elem.classList.contains('open')) close();
+//     else open();
+//  }
+
+//  this.getElem = getElem;
+//  this.toggle = toggle;
+//  this.close = close;
+//  this.open = open;
+
+// }
+
+
+function Menu(options) {
+    var elem;
+  
+    function getElem() {
+      if (!elem) render();
+      return elem;
+    }
+  
+    function render() {
+      elem = document.createElement('div');
+      elem.className = "menu";
+  
+      var titleElem = document.createElement('span');
+      elem.appendChild(titleElem);
+      titleElem.className = "title";
+      titleElem.textContent = options.title;
+  
+      elem.onmousedown = function() {
+        return false;
+      };
+  
+      elem.onclick = function(event) {
+        if (event.target.closest('.title')) {
+          toggle();
+        }
+      }
+  
+    }
+  
+    function renderItems() {
+      var items = options.items || [];
+      var list = document.createElement('ul');
+      items.forEach(function(item) {
+        var li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+      });
+      elem.appendChild(list);
+    }
+  
+    function open() {
+      if (!elem.querySelector('ul')) {
+        renderItems();
+      }
+      elem.classList.add('open');
+    };
+  
+    function close() {
+      elem.classList.remove('open');
+    };
+  
+    function toggle() {
+      if (elem.classList.contains('open')) close();
+      else open();
+    };
+  
+    this.getElem = getElem;
+    this.toggle = toggle;
+    this.close = close;
+    this.open = open;
+  }
+
 

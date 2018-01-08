@@ -677,17 +677,6 @@
 //  console.log(widgetElement.getAttribute('data-widget-name'));
 
 
-<<<<<<< HEAD
-var outerLink = document.querySelectorAll('a');
-for (var item = 0; item < outerLink.length; item++) {
-  var a = outerLink[item];
-  var href = a.getAttribute('href');
-  if (!href) continue;
-  if (href.indexOf('://') == -1) continue;
-  if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
-  a.classList.add('external');
-}
-=======
 //  const outerLink = document.querySelectorAll('a');
 // for (var item = 0; item < outerLink.length; item++) {
 //     let a = outerLink[item];
@@ -698,7 +687,6 @@ for (var item = 0; item < outerLink.length; item++) {
 //     a.classList.add('external');
 // }
 
->>>>>>> a3fb893ac3cf950b7a4d90d181c385f169ae8a3b
 
 // let cars = ['bmw', 'mercedes', 'lada', 'nissan'];
 
@@ -767,8 +755,6 @@ for (var item = 0; item < outerLink.length; item++) {
 // let newAlert = document.createElement('li');
 // newAlert.className = ' danger';
 // newAlert.innerHTML = ' DANGER! '; // создали новый элементо/узел, дали ему текст
-<<<<<<< HEAD
-=======
 
 
 // alertMessage.appendChild(newAlert);
@@ -801,6 +787,34 @@ for (var item = 0; item < outerLink.length; item++) {
 // setTimeout(() => {
 //    document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
 // }, 3000);
+
+
+// let text = document.querySelector('p');
+// let press = document.querySelector('#press');
+
+// document.addEventListener('keypress', (event) => {
+//     const keyName = event.key;
+//     console.log('keypress event\n\n' + 'key: ' + keyName);
+
+//   });
+// press.addEventListener('click', function(){
+//     text.textContent = 'Some change text here!';
+// })
+
+
+// var test = document.getElementById("test");
+
+
+// // this handler will be executed only once when the cursor moves over the unordered list
+// test.addEventListener("mouseenter", function( event ) {   
+//   // highlight the mouseenter target
+//   event.target.style.background = "purple";
+
+//   // reset the color after a short delay
+//   setTimeout(function() {
+//     event.target.style.background = "";
+//   }, 500);
+// }, false);
 
 
 // let colorBlock = document.querySelector('.colorBlock');
@@ -957,7 +971,6 @@ for (var item = 0; item < outerLink.length; item++) {
 //     scrollBar = bigBlock.scrollTop;
 //     innerWidth = bigBlock.clientWidth;
 //     console.log(borderBlock + scrollBar + innerWidth);
->>>>>>> a3fb893ac3cf950b7a4d90d181c385f169ae8a3b
 
 // console.log(bigBlock.clientHeight + ' высота контента clientHeight');
 // console.log(bigBlock.clientWidth +  ' ширина контента clientWidth');
@@ -970,85 +983,16 @@ for (var item = 0; item < outerLink.length; item++) {
 // console.log(bigBlock.scrollHeight +   ' скролл элемента');
 // console.log(bigBlock.scrollTop +   ' скролл внешнего размера элемента');
 
-<<<<<<< HEAD
-// alertMessage.appendChild(newAlert);
-
-// let cloneAlert = newAlert.cloneNode(true); // клонируем новый элемент и даем новый текстовый узел
-// cloneAlert.innerHTML = 'Homer Simpson';
-
-// alertMessage.insertBefore(cloneAlert, alertMessage.firstChild); // вставим в самое начало наш КЛОНИРОВАННЫЙ узел
-=======
 
 // let innerBlock = document.querySelector('.inner-block');
 
 // console.log(innerBlock.offsetTop + ' внешняя высота от род блока');
 // console.log(innerBlock.offsetLeft + ' внешний отступ от род блока');
->>>>>>> a3fb893ac3cf950b7a4d90d181c385f169ae8a3b
 
 // console.log(innerBlock.offsetHeight + ' высота блока включая рамки');
 // console.log(innerBlock.offsetWidth + ' ширина блока включая рамки');
 // console.log(innerBlock.clientHeight + ' внутреняя высота блока');
 
-<<<<<<< HEAD
-// let numbresUl = document.querySelector('.numbres');
-
-// let subelements = numbresUl.getElementsByTagName('li');
-// for (var i = 0; i < subelements.length; i++) {
-//     console.log(subelements[i]);
-//     numbresUl.insertBefore(cloneAlert, subelements[2]);
-//     let numberThree = subelements[3];
-//     numberThree.style.background = '#5cb6f2';
-//     let lastElement = subelements.length - 1;
-//     numberThree.onclick = function(){
-//         // numbresUl.removeChild(subelements[0]); // удаляем элемент с момщью removeChild
-//         this.remove(lastElement);
-//     }
-
-// }
-
-// let textMess = document.createTextNode('Hidden block');
-// let hiddenBlock = document.querySelector('.hiddenBlock');
-// hiddenBlock.appendChild(textMess);
-// setTimeout(() => {
-//    document.body.removeChild(hiddenBlock); //  удалим блок спустя 3 секунды
-// }, 3000);
-
-
-var text = document.querySelector('p');
-var press = document.querySelector('#press');
-
-document.addEventListener('keypress', function (event) {
-  var keyName = event.key;
-  console.log('keypress event\n\n' + 'key: ' + keyName);
-});
-press.addEventListener('click', function () {
-  text.textContent = 'Some change text here!';
-});
-
-var test = document.getElementById("test");
-
-// this handler will be executed only once when the cursor moves over the unordered list
-test.addEventListener("mouseenter", function (event) {
-  // highlight the mouseenter target
-  event.target.style.background = "purple";
-
-  // reset the color after a short delay
-  setTimeout(function () {
-    event.target.style.background = "";
-  }, 500);
-}, false);
-
-// this handler will be executed every time the cursor is moved over a different list item
-test.addEventListener("mouseover", function (event) {
-  // highlight the mouseover target
-  event.target.style.background = "orange";
-
-  // reset the color after a short delay
-  setTimeout(function () {
-    event.target.style.background = "";
-  }, 500);
-}, false);
-=======
 
 // getBoundingClientRect()   Координаты в окне
 
@@ -1219,46 +1163,256 @@ test.addEventListener("mouseover", function (event) {
 // }
 
 
-var main = document.querySelector('.main');
-var subEl = document.querySelectorAll('.sub');
-var spanText = document.querySelectorAll('.span-text');
+// let main = document.querySelector('.main');
+// let subEl = document.querySelectorAll('.sub');
+// let spanText = document.querySelectorAll('.span-text');
 
-function getMain() {
-    main.addEventListener('click', function (event) {
-        console.log(this.tagName);
-        if (event.target == this) {
-            event.target.style.background = 'yellow';
-        }
 
-        for (var i = 0; i < spanText.length; i++) {
-            var allSpan = spanText[i];
-            if (!allSpan) return;
-            if (allSpan == event.target) {
-                event.target.style.background = 'red';
-            }
-        }
-    });
-}
+// function getMain(){
+// main.addEventListener('click', function(event) {
+//     console.log(this.tagName);
+//     if (event.target == this) {
+//         event.target.classList.toggle('yellowBlock');
+//     } 
+// });
+// }
 
-function blueBlock() {
-    var _loop = function _loop(a) {
-        var allSub = subEl[a];
-        allSub.addEventListener('click', function (event) {
-            if (!allSub) return;
-            if (allSub == event.target) {
-                event.target.style.background = 'blue';
-            }
-        });
+
+// function redBlock(){
+//     for (let i = 0; i < spanText.length; i++) {
+//         let allSpan = spanText[i];
+//         allSpan.addEventListener('click', function(event){
+//             if (!this == event.target) return;
+//             if (this == event.target) {
+//                 console.log(event.target);
+//                 event.target.classList.toggle('someColor');
+//             }
+//         });   
+//     }
+// }
+
+// function blueBlock(){
+//     for(let a = 0; a < subEl.length; a++) {
+//         let allSub = subEl[a];
+//         allSub.addEventListener('click', function(event){
+//         if (!allSub) return;
+//         if (this == event.target) {
+//             console.log(event.target);
+//             event.target.style.background = 'lightblue';
+//         }
+//     });
+// }
+// } 
+
+// function init(){
+//     blueBlock();
+//     redBlock();
+//     getMain();
+// }
+// init();
+
+
+// function Menu(option) {
+
+//     let elem = option.elem;
+
+//     elem.onclick = function(event) {
+
+//         if (event.target.closest('.title')) {
+//             elem.classList.toggle('open');
+//         }
+//     }
+// }
+
+// var menu = new Menu({
+//     elem: txt
+//   });
+
+
+//   function getChildren(){
+//   let targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
+//  for (let i = 0; i < targetElem.length; i++) { // узнали сколько их и применили к ним обработчик событий для каждого
+//   targetElem[i].onclick = function(event) { 
+//       if (event.target.closest('.parent')) { // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
+//         targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
+//       }
+//   };
+// }
+
+// }  getChildren();
+
+
+// let outerBlock = document.querySelector('.outer-block');
+// let subBlock = document.querySelectorAll('.sub-block');
+// let childrenBlock = document.querySelectorAll('.children-block');
+
+
+// function ChangeElement(options) {
+//         const elem = options.elem;  
+//         elem.onclick = function(event){
+//             if (event.target.closest('body')) {
+//                  toggleElement();
+//                 console.log(this.tagName)
+//             }
+//         };
+//         function toggleElement(){
+
+//             elem.classList.toggle('someColor');
+//         }
+//         this.toggleElement = toggleElement;
+//     }
+
+
+// function getAllElements(element){
+//     if (outerBlock.hasChildNodes(subBlock) && outerBlock.hasChildNodes(childrenBlock)) {
+//     for(let i = 0; i < element.length; i++) {
+//         console.log(element[i]);
+//         ChangeElement( element[i]);
+//      }
+//     }
+// }
+
+// getAllElements(subBlock);
+// getAllElements(childrenBlock);
+
+
+// const change = new ChangeElement({
+//     elem: outerBlock
+// });
+// change.toggleElement();
+
+
+// let containerList = document.createElement('div');
+// containerList.className = 'container-list';
+
+// let menu = new Menu({
+//     title: 'Search',
+//     items: [
+//         'Rambler',
+//         'Yandex',
+//         'Google',
+//         'Yahoo'
+//     ]
+// });
+
+// let elem = menu.getElem();
+// document.body.appendChild(elem);
+
+
+// function Menu(option) {
+//     let elem;
+
+//     function render() {
+//         elem = document.createElement('div');
+//         elem.className = 'menu';
+
+//         let titleElem = document.createElement('span');
+//         titleElem.className = 'title';
+//         elem.appendChild(titleElem);
+//         titleElem.textContent = option.title;
+
+//     }
+
+
+//     elem.onclick = function(event) {
+//         if (event.target.closest('.title')) {
+//             toggle();
+//         }
+//     }
+
+
+// function renderItems() {
+//     let items = option || [];
+//     let list = document.createElement('ul');
+//     items.forEach(function(item) {
+//         let li = document.createElement('li');
+//         li.textContent = item;
+//         list.appendChild(li);
+//     });
+//     elem.appendChild(list);
+// }
+
+
+// function close() {
+//     elem.classList.remove('open');
+// }
+
+// function open() {
+//     if (!elem.querySelector('ul')) {
+//         renderItems();
+//     }
+//     elem.classList.add('open');
+// }
+
+// function toggle() {
+//     if (elem.classList.contains('open')) close();
+//     else open();
+//  }
+
+//  this.getElem = getElem;
+//  this.toggle = toggle;
+//  this.close = close;
+//  this.open = open;
+
+// }
+
+
+function Menu(options) {
+  var elem;
+
+  function getElem() {
+    if (!elem) render();
+    return elem;
+  }
+
+  function render() {
+    elem = document.createElement('div');
+    elem.className = "menu";
+
+    var titleElem = document.createElement('span');
+    elem.appendChild(titleElem);
+    titleElem.className = "title";
+    titleElem.textContent = options.title;
+
+    elem.onmousedown = function () {
+      return false;
     };
 
-    for (var a = 0; a < subEl.length; a++) {
-        _loop(a);
-    }
-}
+    elem.onclick = function (event) {
+      if (event.target.closest('.title')) {
+        toggle();
+      }
+    };
+  }
 
-function init() {
-    blueBlock();
-    getMain();
+  function renderItems() {
+    var items = options.items || [];
+    var list = document.createElement('ul');
+    items.forEach(function (item) {
+      var li = document.createElement('li');
+      li.textContent = item;
+      list.appendChild(li);
+    });
+    elem.appendChild(list);
+  }
+
+  function open() {
+    if (!elem.querySelector('ul')) {
+      renderItems();
+    }
+    elem.classList.add('open');
+  };
+
+  function close() {
+    elem.classList.remove('open');
+  };
+
+  function toggle() {
+    if (elem.classList.contains('open')) close();else open();
+  };
+
+  this.getElem = getElem;
+  this.toggle = toggle;
+  this.close = close;
+  this.open = open;
 }
-init();
->>>>>>> a3fb893ac3cf950b7a4d90d181c385f169ae8a3b
