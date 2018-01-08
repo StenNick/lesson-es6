@@ -687,15 +687,15 @@
 //  console.log(widgetElement.getAttribute('data-widget-name'));
 
 
- const outerLink = document.querySelectorAll('a');
-for (var item = 0; item < outerLink.length; item++) {
-    let a = outerLink[item];
-    let href = a.getAttribute('href');
-    if (!href) continue;
-    if (href.indexOf('://') == -1) continue;
-    if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
-    a.classList.add('external');
-}
+//  const outerLink = document.querySelectorAll('a');
+// for (var item = 0; item < outerLink.length; item++) {
+//     let a = outerLink[item];
+//     let href = a.getAttribute('href');
+//     if (!href) continue;
+//     if (href.indexOf('://') == -1) continue;
+//     if (!href.indexOf('http://') === 0 || !href.indexOf('ftp://')) continue;
+//     a.classList.add('external');
+// }
 
 
 // let cars = ['bmw', 'mercedes', 'lada', 'nissan'];
@@ -804,19 +804,17 @@ for (var item = 0; item < outerLink.length; item++) {
 
 
 
-let text = document.querySelector('p');
-let press = document.querySelector('#press');
+// let text = document.querySelector('p');
+// let press = document.querySelector('#press');
 
-document.addEventListener('keypress', (event) => {
-    const keyName = event.key;
-    console.log('keypress event\n\n' + 'key: ' + keyName);
+// document.addEventListener('keypress', (event) => {
+//     const keyName = event.key;
+//     console.log('keypress event\n\n' + 'key: ' + keyName);
 
-  });
-press.addEventListener('click', function(){
-    text.textContent = 'Some change text here!';
-})
-
-
+//   });
+// press.addEventListener('click', function(){
+//     text.textContent = 'Some change text here!';
+// })
 
 
 
@@ -824,28 +822,434 @@ press.addEventListener('click', function(){
 
 
 
-var test = document.getElementById("test");
 
 
-// this handler will be executed only once when the cursor moves over the unordered list
-test.addEventListener("mouseenter", function( event ) {   
-  // highlight the mouseenter target
-  event.target.style.background = "purple";
-
-  // reset the color after a short delay
-  setTimeout(function() {
-    event.target.style.background = "";
-  }, 500);
-}, false);
+// var test = document.getElementById("test");
 
 
-// this handler will be executed every time the cursor is moved over a different list item
-test.addEventListener("mouseover", function( event ) {   
-  // highlight the mouseover target
-  event.target.style.background = "orange";
+// // this handler will be executed only once when the cursor moves over the unordered list
+// test.addEventListener("mouseenter", function( event ) {   
+//   // highlight the mouseenter target
+//   event.target.style.background = "purple";
 
-  // reset the color after a short delay
-  setTimeout(function() {
-    event.target.style.background = "";
-  }, 500);
-}, false);
+//   // reset the color after a short delay
+//   setTimeout(function() {
+//     event.target.style.background = "";
+//   }, 500);
+// }, false);
+
+
+
+// let colorBlock = document.querySelector('.colorBlock');
+
+// function changeColor() {
+//     colorBlock.classList.toggle('red-block');
+// }
+
+
+
+// let ulElement = document.querySelectorAll('ul');
+
+// function getAllUl() {
+//     for (let i = 0; i < ulElement.length; i++) {
+//         // console.log(ulElement[i]);
+//         ulElement[i].style.background = 'lightblue';
+//         let parrentUl = ulElement[2];
+//         // console.log(parrentUl);
+//         let liChild = parrentUl.getElementsByTagName('li');
+//         // console.log(liChild);
+//         for (let li = 0; li < liChild.length; li++) {
+//             // console.log(liChild[li]);
+//             let textNode = document.textContent = 'Hello!';
+//             liChild[2].innerHTML = textNode;
+//             liChild[2].style.background = 'coral';
+//             liChild[2].onclick = function(){
+//                let redBlock = document.createElement('div');
+//                 redBlock.className = 'red-block';
+//                 let alertMessage = redBlock.textContent = 'Внимание!';
+//                 redBlock.innerHTML = alertMessage;
+//                 this.appendChild(redBlock);
+                
+//             }
+//         }
+//     }
+// }
+
+// getAllUl();
+
+
+// const bigDiv = document.createElement('div');
+// for (let i = 0; i < bigDiv.length; i++ ) {
+//     bigDiv[i].appendChild(span);
+//     document.body.appendChild(bigDiv);
+// }
+
+
+// const mainElement = document.querySelectorAll('ul')[0];
+// let  childElementOne = mainElement.children[0];
+
+// childElementOne.style.background = '#b3dffc';
+// childElementOne.style.color = '#333';
+
+// let one = childElementOne.insertAdjacentHTML('beforeBegin', '<li class="before">перед элементом  beforeBegin  </li>');
+// // найдем самый первый UL элемент из всех списков, найдем его первый дочерний элемент (0), и вставим ПЕРЕД ним множество новых li с чем либо
+
+
+// childElementOne.insertAdjacentHTML('afterBegin', '<li class="before-middle">в самое начало элемента  afterBegin </li>');
+// // нашли 1й элемент, и вставили перед ним что либо
+
+// childElementOne.insertAdjacentHTML('beforeEnd', '<li class="after-middle">в конец  элемента  beforeEnd </li>');
+
+
+// childElementOne.insertAdjacentHTML('afterEnd', '<li class="after-end">после элемента  afterEnd </li>');
+
+// let parrent = document.querySelector('#parrent');
+
+
+// let subElem = document.createElement('div');
+// subElem.className = 'sub-block';
+// subElem.textContent = 'append method';
+// let fragment = document.createDocumentFragment(subElem);
+
+// console.log(fragment);
+// parrent.appendChild(fragment);
+
+// let preElement = document.createElement('div');
+// preElement.className = 'pre-block';
+// preElement.textContent = 'prepend method';
+
+// let afterElement = document.createElement('div');
+// afterElement.className = 'after-element';
+// afterElement.textContent = 'after element';
+
+// let beforeElement = document.createElement('div');
+// beforeElement.className = 'before-element';
+// beforeElement.textContent = 'before element';
+
+// let replaceElement = document.createElement('div');
+// replaceElement.className = 'replace-element';
+// replaceElement.textContent = ' I NEW ELEMENT ';
+
+
+
+// parrent.append(subElem);
+// parrent.prepend(preElement);
+
+// parrent.before(beforeElement);
+// parrent.after(afterElement);
+
+
+
+// let bigBlock = document.querySelector('.big-block');
+// let paragraph = bigBlock.querySelectorAll('p')[3];
+// // console.log(bigBlock.clientWidth);
+// // console.log(getComputedStyle(bigBlock).width + ' comuted style width');
+
+// let innerBlock = document.querySelector('.inner-block');
+
+
+// var scrollHeight = Math.max(
+//     document.body.scrollHeight, document.documentElement.scrollHeight,
+//     document.body.offsetHeight, document.documentElement.offsetHeight,
+//     document.body.clientHeight, document.documentElement.clientHeight
+//   );
+  
+//   console.log( 'Высота с учетом прокрутки: ' + scrollHeight ); // Надёжно определить размер страницы с учетом прокрутки можно, взяв максимум из нескольких свойств:
+
+//   console.log( 'Текущая прокрутка сверху: ' + window.pageYOffset );
+//   console.log(document.documentElement.scrollTop + ' scroll'); // Текущая прокрутка сверху:
+
+//   parrent.onclick = function() {
+//     window.scrollTo(0, 100); // при нажатии на элемент вернет окно на заданую высоту от начала экрана
+// }
+
+// innerBlock.onclick = function() {
+//    this.scrollIntoView(true);
+//    console.log(this.getBoundingClientRect());
+// }
+
+
+
+
+// Итого
+
+// Размеры:
+
+// Для получения размеров видимой части окна: document.documentElement.clientWidth/Height
+
+// Для получения размеров страницы с учётом прокрутки:
+
+// var scrollHeight = Math.max(
+//   document.body.scrollHeight, document.documentElement.scrollHeight,
+//   document.body.offsetHeight, document.documentElement.offsetHeight,
+//   document.body.clientHeight, document.documentElement.clientHeight
+// );
+
+
+
+
+// paragraph.style.border = '6px solid red';
+// console.log(paragraph.clientHeight);
+
+
+// let paddingBlock,
+//     borderBlock,
+//     innerWidth,
+//     scrollBar;
+
+//     borderBlock = bigBlock.clientLeft;
+//     scrollBar = bigBlock.scrollTop;
+//     innerWidth = bigBlock.clientWidth;
+//     console.log(borderBlock + scrollBar + innerWidth);
+
+// console.log(bigBlock.clientHeight + ' высота контента clientHeight');
+// console.log(bigBlock.clientWidth +  ' ширина контента clientWidth');
+// console.log(bigBlock.clientTop +    ' высота рамки блока clientTop');
+// console.log(bigBlock.clientLeft +   ' ширина рамки блока clientLeft');
+// console.log(bigBlock.offsetTop + ' высота элемента от начала страницы или род. элемента');
+// console.log(bigBlock.offsetLeft + ' расстояние от левого края страницы или род элемента');
+// console.log(bigBlock.offsetWidth +   ' внешняя ширина элемента, ширина блока в ксс 450');
+// console.log(bigBlock.offsetHeight +   ' внешняя высота элемента');
+// console.log(bigBlock.scrollHeight +   ' скролл элемента');
+// console.log(bigBlock.scrollTop +   ' скролл внешнего размера элемента');
+
+
+// let innerBlock = document.querySelector('.inner-block');
+
+// console.log(innerBlock.offsetTop + ' внешняя высота от род блока');
+// console.log(innerBlock.offsetLeft + ' внешний отступ от род блока');
+
+// console.log(innerBlock.offsetHeight + ' высота блока включая рамки');
+// console.log(innerBlock.offsetWidth + ' ширина блока включая рамки');
+// console.log(innerBlock.clientHeight + ' внутреняя высота блока');
+
+
+
+
+
+
+// getBoundingClientRect()   Координаты в окне
+
+
+
+// top – Y-координата верхней границы элемента,
+// left – X-координата левой границы,
+// right – X-координата правой границы,
+// bottom – Y-координата нижней границы.
+
+
+// let rect = document.querySelector('.rect-block');
+// console.log(rect.getBoundingClientRect());
+
+// rect.onclick = function () {
+ 
+//     console.log(this.getBoundingClientRect())
+  
+
+// }
+
+
+// function getBlock() {
+//     let heightRect = rect.clientHeight;
+//     let bodyHeight = pageYOffset;
+//     console.log(bodyHeight + ' body ');
+//     console.log(heightRect + ' rect');
+//     let topY = heightRect + pageYOffset;
+//     console.log(topY);
+//     if (bodyHeight <= topY) {
+//         rect.style.background = 'red';
+//     }
+// }
+// getBlock();
+
+
+// function getCoords(elem) { // кроме IE8-
+//     var box = elem.getBoundingClientRect();
+  
+//     return {
+//       top: box.top + pageYOffset,
+//       left: box.left + pageXOffset
+//     };
+  
+//   }
+
+//   console.log(getCoords(rect));
+
+
+
+// function getDocumentScroll() {
+//      var scrollHeight = Math.max(
+//       document.body.scrollHeight, document.documentElement.scrollHeight,
+//       document.body.offsetHeight, document.documentElement.offsetHeight,
+//       document.body.clientHeight, document.documentElement.clientHeight
+//     );
+//     return {
+//       top: pageYOffset,
+//       bottom: pageYOffset + document.documentElement.clientHeight,
+//       height: scrollHeight
+//     };
+//   }
+// console.log(  getDocumentScroll());
+
+
+// let bot = rect.getBoundingClientRect();
+// let resultCoords = bot.bottom;
+// console.log(resultCoords);
+
+// // window.onscroll = function() {
+// //     var scrolled = window.pageYOffset || document.documentElement.scrollTop; // узнали сколько прокрутили в PX страницу
+// //    console.log(scrolled + ' px ' + resultCoords);
+// //    if (scrolled > resultCoords) {
+// //        rect.className ='fixed';
+// //    } else {
+// //        rect.classList.remove('fixed');
+// //        rect.className = 'rect-block';
+// //    }
+// //   }
+
+// function makeRed(elem) {
+//     this.classList.toggle('shadow');
+// }
+
+
+
+// bigBlock.addEventListener('click', makeRed);
+
+// console.log(rect.getAttribute('data-ng-app'));
+
+
+
+// let containerBlock = document.querySelectorAll('#messages-container .remove-button');
+// for (let item = 0; item < containerBlock.length; item++) {
+//     console.log(containerBlock[item]);
+//     let buttons = containerBlock[item];
+
+//     buttons.onclick = function() {
+//         let el = this.parentNode;
+//         el.parentNode.removeChild(el);
+//     }
+// }
+
+
+// let down = document.querySelector('.down');
+// let heightParrent = parrent.getBoundingClientRect();
+
+
+// function scrollWin() {
+//     window.scrollTo(0, heightParrent.top); // перейти к верхней границе элемента
+// }
+
+// down.addEventListener('click', scrollWin); // при нажатии на кнопку down мы переходи к элементу в самом низу, к его верхней границе
+
+
+// window  ONSCROLL - ПОКАЗЫВАЕТ СКОЛЬКО БЫЛО ПРОКРУЧЕННО ПИКСЛЕЙ НА ЭЛЕМЕНТЕ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+// function makeFixed() {
+//     let relativeBlock = document.querySelector('.barSide');
+//     let toPoint = relativeBlock.getBoundingClientRect().top + window.pageYOffset;
+//     window.onscroll = function() {
+//         var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+//         if (scrolled >= toPoint && relativeBlock.classList.contains('barSide')) {
+//             relativeBlock.classList.remove('barSide');
+//             relativeBlock.className = 'fixedBlock';
+//         } else if (scrolled <= toPoint && relativeBlock.classList.contains('fixedBlock')) {
+//             relativeBlock.classList.remove('fixedBlock');
+//             relativeBlock.className = 'barSide';
+//         }
+//     }
+// }
+// makeFixed(); // создали блок, который прилипает если высотра страницы больше или равна верхней точке рекламного блока
+
+
+
+
+
+// window.onscroll = function() {
+//     var scrolled = window.pageYOffset || document.documentElement.scrollTop; // узнали сколько прокрутили в PX страницу
+//    console.log(scrolled + ' px ');
+// }
+
+// узнаем по каком элементу был Клик
+
+// function getTypeEvent() {
+//     let sub = document.querySelector('.sub-inner');
+//     sub.onclick = function(event){
+//         console.log(event.type + ' on ' + event.currentTarget); //  click on [object HTMLDivElement]
+//     }
+//     let clickDoc = document.documentElement;
+//     clickDoc.onclick = function(ev) {
+//         console.log(ev.clientX + ' ' + ev.clientY); // узнаем координаты документа при клике
+//     }
+// }
+// getTypeEvent();
+
+
+
+
+// function changeColor(e) {
+// let external = document.querySelector('.external'); // найдем родителя
+//     external.onclick = function(event) {
+//         console.log(event.type + ' ' + event.target.tagName); // сможем найти все вложенные элементы (дочерние)
+//     }
+
+//    // узнаем по какому элементу был клик или событие
+       
+// }
+
+
+
+// let messBox = document.getElementById('messages-container'); // нашли элемент
+
+// messBox.onclick = function(event) {
+    
+//     console.log('на что кликнули ' + event.target.tagName + ' this = ' + this.tagName); // узнали на что нажали, и какой родитель у элементов
+// }
+
+
+
+
+
+
+let main = document.querySelector('.main');
+let subEl = document.querySelectorAll('.sub');
+let spanText = document.querySelectorAll('.span-text');
+
+
+function getMain(){
+main.addEventListener('click', function(event) {
+    console.log(this.tagName);
+    if (event.target == this) {
+        event.target.style.background = 'yellow';
+    }
+
+    for (let i = 0; i < spanText.length; i++) {
+        let allSpan = spanText[i];
+        if (! allSpan) return;
+        if (allSpan == event.target) {
+            event.target.style.background = 'red';
+        }  
+    }
+});
+}
+
+
+function blueBlock(){
+    for(let a = 0; a < subEl.length; a++) {
+        let allSub = subEl[a];
+        allSub.addEventListener('click', function(event){
+        if (!allSub) return;
+        if (allSub == event.target) {
+            event.target.style.background = 'blue';
+        }
+    });
+}
+} 
+       
+function init(){
+    blueBlock();
+    getMain();
+}
+init();
+

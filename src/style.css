@@ -93,6 +93,7 @@ body * .container .child-block {
       padding: 20px;
   }
 
+<<<<<<< HEAD
 
   .cup{
     width: 300px;
@@ -106,4 +107,253 @@ body * .container .child-block {
  #test li{
     padding: 10px;
     border: 1px solid #333;
+=======
+  .colorBlock{
+      height: 200px;
+      width: 200px;
+      border: 2px solid #333;
+  }
+
+  .red-block{
+      background: coral;
+      border-radius: 5px;
+  }
+
+  ul{
+      margin: 20px;
+      border: 1px solid #333;
+      padding: 10px;
+  }
+
+  ul li {
+      padding: 10px;
+      border: 1px solid coral;
+      background: #fff;
+  }
+
+  .red-block{
+      width: 200px;
+      height: auto;
+      padding: 10px;
+      background: #fff;
+  }
+
+  .before {
+      background: #d6b3fc;
+  }
+
+  .after-end {
+      background: #c9fcb3;
+  }
+
+  #parrent {
+      width: 400px;
+      padding: 10px;
+      text-align: center;
+      height: auto;
+      color: #fff;
+      background: #333;
+  }
+
+  .sub-block, .pre-block{
+      width: 200px;
+      height: 50px;
+      background: cornflowerblue;
+      margin: 10px auto;
+  }
+
+
+  .after-element, .before-element{
+      padding: 20px;
+      background: coral;
+      width: 200px;
+  }
+
+  .big-block{
+      height: 500px;
+      width: 450px;
+      border: 25px solid #333;
+      padding: 21px;
+      margin: auto; 
+      text-align: justify;
+      background: lightgreen;
+      overflow:auto;
+      position: relative;
+  }
+
+  .big-block p{
+      background: #fff;
+  }
+
+  .big-block .inner-block{
+      position: absolute;
+      top: 102px;
+      left: 102px;
+      height: 100px;
+      width: 100px;
+      background: #fff;
+      border: 5px solid rgb(223, 20, 20);
+      text-align: justify;
+      
+  }
+
+  .rect-block{
+      height: 200px;
+      width: 200px;
+      background: #c9fcb3;
+      border: 1px solid #333;
+      margin: 40px auto;
+      position: relative;
+  }
+
+  .fixed{
+      position: fixed;
+      height: 200px;
+      left: 45%;
+      top: 20px;
+      width: 200px;
+      background: #c9fcb3;
+      border: 1px solid #333;
+      margin: 40px auto;
+  }
+
+  .shadow{
+      box-shadow: 0 2px 5px #333;
+      background: #fff;
+  }
+
+  #messages-container{
+      width: 300px;
+      height: auto;
+      padding: 20px;
+      background: #d6b3fc;
+
+  }
+
+  #messages-container .pane{
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 2px 4px #333, inset 0 2px 4px #333;
+      color: #333;
+      margin-top: 10px;
+      position: relative;
+  }
+
+  .pane .remove-button{
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    color: red;
+    background: #fff;
+    border: none;
+    font-size: 24px;
+  }
+  .pane .remove-button:hover{
+      cursor: pointer;
+  }
+
+  .down{
+      display: block;
+      padding: 10px 20px;
+      background: #50b3f4;
+      color: #fff;
+      border: none;
+      position: fixed;
+      top: 50px;
+      right: 50px;
+  }
+
+  .down:hover {
+      cursor: pointer;
+      box-shadow: 0 2px 2px #333;
+  }
+
+.barSide{
+    height: 400px;
+    width: 200px;
+    padding: 20px;
+    background: #53b8fc;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    left: 50px;
+    top: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.fixedBlock{
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    height: 400px;
+    width: 200px;
+    padding: 20px;
+    background: #53b8fc;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.external {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+    background: #f97a91;
+}
+
+  .external .inner{
+      height: 100px;
+      width: 100px;
+      margin: auto;
+      background: #a77af9;
+      padding: 10px;
+  }
+
+  .external .inner .sub-inner{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    background: #7ab3f9;
+    padding: 10px;
+  }
+
+
+  .changeColor{
+      background: 'red';
+  }
+
+
+  .main{
+      height: auto;
+      min-height: 500px;
+      width: 600px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center;
+      border: 2px solid #333;
+      margin: 20px auto;
+  }
+
+  .main .sub{
+      width: 30%;
+      height: auto;
+      padding: 10px;
+      background: #665577;
+      margin: 2px;
+      border: 2px solid #7ab3f9;
+  }
+
+  .main .sub .span-text{
+      display: block;
+      background: #fff;
+      margin: auto;
+      padding: 10px;
+      border: 1px solid #333;
+      text-align: center;
+>>>>>>> a3fb893ac3cf950b7a4d90d181c385f169ae8a3b
   }
