@@ -362,7 +362,14 @@ body * .container .child-block {
   }
 
 
-
+.showObject{
+    padding: 10px 20px;
+    background: lightgreen;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    margin: auto;
+}
   .menu{
     width: 300px;
     min-height: 300px;

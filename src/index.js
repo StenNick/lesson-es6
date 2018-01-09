@@ -1436,3 +1436,340 @@ function Menu(options) {
     this.close = close;
     this.open = open;
   }
+
+
+
+
+
+
+//   const people = ['Misha', 'Sasha', 'Julia', 'Danila'];
+//  let joinName = people.join(', ');
+//  console.log(joinName)
+
+//  function deleteIndex(arr) {
+//      for (let i = 0; i < arr.length; i++) {
+//              delete arr[2];
+//              if (arr[2] == undefined) {
+                
+//              }
+//          }
+//      return arr;
+//  }
+
+//  console.log(deleteIndex(people));
+
+
+
+//  const spliceArr = ['one', 'two', 'three', 'four', 'five'];
+//  // универсальный метод для массивов!
+// // arr.splice(index[, deleteCount, elem1, ..., elemN])
+// spliceArr.splice(0, 2); // удалить 2 элемента начиная с 1го 
+// console.log(spliceArr);
+
+// // вставим элементы
+
+// spliceArr.splice(0, 0, 'I', 'NEW', 'ELEMENT!'); // вставить новые элементы с 1го не меняя и не заменяя другие элементы
+// console.log(spliceArr);
+
+// // вставить с позиции 2, удалить 0 элементов, вставить новые индексы
+// spliceArr.splice(2, 0, 'wow', 'cool!');
+// console.log(spliceArr);
+
+
+// const animals = ['cat', 'dog', 'chiken', 'dragons', 'cow'];
+
+// animals.splice(0, 0, '1', '2', '3');
+
+// console.log(animals);
+
+// const animals2 = animals.slice(0); // скопируем весь массив
+// console.log(animals2);
+
+
+
+// const alphabet = ['z', 'g', 'b', 'a', 'q', 'c', 'd', 'w', 'e', 'r', 'f', 'h'];
+// alphabet.sort();
+// console.log(alphabet); // ["a", "b", "c", "d", "e", "f", "g", "h", "q", "r", "w", "z"]
+
+// const sortNumber = [2, 10, 1, 0, 5, 3, 4, 8, 7];
+// sortNumber.sort(function(a, b){
+//     if (a < b) {
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// });
+// console.log(sortNumber); // [0, 1, 2, 3, 4, 5, 7, 8, 10]
+
+
+
+// let one = [1, 2, 3];
+// let two = [4, 5, 6];
+// function plus(a1 ,b2 ){
+//   let sum1 = a1.reduce(function(prev, value) {
+//       return prev + value;
+//   });
+//   let sum2  = b2.reduce(function(prev, value) {
+//          return prev + value;
+// });
+//  return sum1 + sum2;
+// }
+// console.log(plus(one, two));
+
+
+let numbers = [2, 4, 6, 8, 10];
+
+let sum = numbers.map(function(item){
+    return item + item;
+});
+console.log(sum);
+
+
+const fruits = ['Apple', 'Orange', 'waterlemon', 'Cranberry'];
+const fruitJuce = fruits.map(function(frut) {
+    return (`${frut} juce`);
+});
+console.log(fruitJuce);
+
+
+var parkRides = [ ["Birch Bumpers", 40] , ["Pines Plunge", 55]
+ ["Cedar Coaster", 20] , ["Ferris Wheel of Firs", 90] ];
+
+ var fastPassQueue = [ "Cedar Coaster", "Pines Plunge", "Birch Bumpers", "Pines Plunge" ];
+
+
+
+
+ /* Создадим функцию конструктор, в которую будем помещать данные о пассажирах и билетах  */
+
+
+function assignTorpedo(passengerArray) { 
+    return function( name ) {
+        for (let i = 0; i < passengerArray.length; i++) {
+            // найдем имя пассажира в списке 
+            if (passengerArray[i] == name) { // если массив с именами совпадает с именем которое мы передадим, то вывести...
+                    // то выводим имя и номер под которым оно находится в массиве
+                    console.log(`hey  ${name} man your post at torpedo ${(i + 1)} !`);
+            }
+        }
+    }; 
+}
+let subPassengers = ["Luke", "Leia", "Han", "Chewie", "Yoda", "R2-D2"]; // subPassengers эо второй аргумент функции, массив с именами
+let getName_1 = assignTorpedo(subPassengers);
+getName_1('Han');
+
+
+
+
+
+
+
+function buildCoveTicketMaker(transport) { // transport - имя транспорта, передаваемая в новой переменной 
+    let passengerNumber = 0; // начнем нумерацию каждого пассажира с 0 (нуля)
+    return function(name) { // nmae - имя пассажира, передается в параметре ТРАНСПОРТА  - getSubmarineTicket('Sten');
+        passengerNumber++; // когда вызывана функция с каким либо транспортом, мы добавляем пассажира 
+        // каждый раз когда будет вызвана повторно функция с одним и тем же именем, счетчик увеличится на 1
+        console.log(`Here is your transport ${transport} welcome to the Cold cove ${name} you are passenger # ${passengerNumber}`);
+        /* passengerNumber - Каждый раз, когда билет «печатается», этот
+            Номер пассажира будет содержать
+            точное количество раз сколько раз 
+            билет был выдан */
+
+    }
+}
+
+
+
+let getSubmarineTicket = buildCoveTicketMaker('Submarine'); // создали переменную, и передали в нее функцию конструктор, в ее параметре есть имя транспорта
+let getBattleshiptTicket = buildCoveTicketMaker('Battleship');
+let getBirdTicket = buildCoveTicketMaker('bird');
+
+
+getSubmarineTicket('Sten');// в новой переменной задаем параметр - имени, т.к. функция констсруктор возвращает АНОНИМНУЮ функцию и там есть аргумент NAME
+getBattleshiptTicket('Nick');
+getBirdTicket('Parrot');
+
+
+
+
+function capacityStatus(numPass, cap) {
+    if ( numPass > cap) {
+        noSeats();
+    } else {
+        seats();
+    }
+
+     function noSeats(){
+        console.log('no seats!');
+        return false;
+    }
+     function seats(){
+        console.log('have seats!');
+        return true;
+    }
+}
+
+capacityStatus(6, 20);
+
+
+/*    Объекты */
+
+
+const aquarium = {
+    Nemo: {
+        type: "fish",
+        age: 23,
+        length: 3.7,
+        color: 'orange-white'
+    },
+    Marlin: {
+        type: "fish",
+        age: 10,
+        length: 1.7,
+        color: 'white'
+    },
+
+    Dory: {
+        type: "i Dory!",
+        age: 5,
+        length: 2,
+        color: 'blue'
+    },
+
+    "Coral castle" : {
+        type: "build",
+        age: 76,
+        height: '213',
+        width: 260,
+        owner: 'Artur'
+    },
+    addCritter: function(name, type, age, length, color) {
+        this[name] = {
+            type: type,
+            age: age,
+            color: color
+        }
+    }
+};
+
+
+
+// aquarium.addCritter('Bubbles', 'fish', 12, 4.7, 'yellow');
+// aquarium.addCritter('SHARK!', 'fish', 7, 3.4, 'grey');
+// function getkeys() {
+//     for (let outkey in aquarium) {
+//         const saver = aquarium[outkey]; 
+//         for (let innerKey in saver) { 
+    
+//             console.log(innerKey + ' ' + saver[innerKey]); 
+//         }
+//     }
+// }
+// getkeys();
+
+
+//---------------------------------CALL----------------------------------
+
+// function getFullName() {
+//     console.log(this.first + this.last);
+// }
+
+// function getPropMan(fristArg, secondArg, lastArg) {
+//     console.log(this[fristArg] + ' ' + this[secondArg] + ' ' + this[lastArg]);
+// }
+
+// let user = {
+//     first: 'bruce ',
+//     last: ' Wayne',
+//     age: 24,
+//     sex: 'man',
+//     colorHair: 'brown'
+// };
+
+// getFullName.call(user); // вызвали функцию через call, передав в аргумент Объект со свойствами объекта
+// getPropMan.call(user, 'sex', 'colorHair', 'age');
+
+
+// function getArgs() {
+//     arguments.join = [].join; // отдолжили метод у массива для объекта - arguments
+//     let argStr = arguments.join('-');
+//     console.log(argStr);
+// }
+// getArgs(1, 2, 3, 4);
+
+
+var user = {
+    firstName: "Вася",
+    sayHi: function() {
+        console.log( this.firstName );
+    }
+  };
+  
+  setTimeout(user.sayHi, 1000); // undefined (не Вася!)
+
+
+
+  //------------------------- BIND -----------------------
+
+const users = {
+    data: [
+        {name: 'Mikle'},
+        {name: 'Bruce'},
+        {name: 'John'},
+        {name: 'Deeper'},
+        {name: 'Luce'}
+    ],
+    showName(event) {
+        // for (let i = 0; i < this.data.length; i++) {
+        //    // console.log(this.data[i]);
+        //   //  let dataname = this.data[i];
+        //     for (let key in dataname) {
+        //         console.log(dataname[key]);
+                
+        //     }
+        // }
+        console.log(this.data[2].name);
+    }
+};
+
+let showObj = document.querySelector('.showObject');
+// console.log(showObj);
+// showObj.addEventListener('click', function(event){
+//     users.showName();
+// });
+
+showObj.onclick = function(ev){
+    users.showName();
+}
+
+
+const employee = {
+    name: 'John',
+    phone: '+7 (765) 000-98-34',
+    company: 'Opera Software',
+    email: 'john@opera.com'
+  };
+  
+  const keys = Object.keys(employee);
+  console.log(keys); // ["name","phone","company","email","key"]
+
+
+  keys.forEach(function(key) {
+    console.log(key + ': ' + employee[key]);
+  });
+
+
+
+  //  Arrow function
+
+
+
+
+
+
+  let b = 20;
+  if (true) {
+    let b = 10; 
+    console.log(b + ' inner');
+   
+  }
