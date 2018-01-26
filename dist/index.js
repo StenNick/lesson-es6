@@ -1,4 +1,6 @@
-'use strict';
+"use strict";
+
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 // let one = true;
 // let two = false;
@@ -789,6 +791,34 @@
 // }, 3000);
 
 
+// let text = document.querySelector('p');
+// let press = document.querySelector('#press');
+
+// document.addEventListener('keypress', (event) => {
+//     const keyName = event.key;
+//     console.log('keypress event\n\n' + 'key: ' + keyName);
+
+//   });
+// press.addEventListener('click', function(){
+//     text.textContent = 'Some change text here!';
+// })
+
+
+// var test = document.getElementById("test");
+
+
+// // this handler will be executed only once when the cursor moves over the unordered list
+// test.addEventListener("mouseenter", function( event ) {   
+//   // highlight the mouseenter target
+//   event.target.style.background = "purple";
+
+//   // reset the color after a short delay
+//   setTimeout(function() {
+//     event.target.style.background = "";
+//   }, 500);
+// }, false);
+
+
 // let colorBlock = document.querySelector('.colorBlock');
 
 // function changeColor() {
@@ -1135,57 +1165,54 @@
 // }
 
 
-var main = document.querySelector('.main');
-var subEl = document.querySelectorAll('.sub');
-var spanText = document.querySelectorAll('.span-text');
+// let main = document.querySelector('.main');
+// let subEl = document.querySelectorAll('.sub');
+// let spanText = document.querySelectorAll('.span-text');
 
-function getMain() {
-    main.addEventListener('click', function (event) {
-        console.log(this.tagName);
-        if (event.target == this) {
-            event.target.classList.toggle('yellowBlock');
-        }
-    });
-}
 
-function redBlock() {
-    for (var i = 0; i < spanText.length; i++) {
-        var allSpan = spanText[i];
-        allSpan.addEventListener('click', function (event) {
-            if (!this == event.target) return;
-            if (this == event.target) {
-                console.log(event.target);
-                event.target.classList.toggle('someColor');
-            }
-        });
-    }
-}
+// function getMain(){
+// main.addEventListener('click', function(event) {
+//     console.log(this.tagName);
+//     if (event.target == this) {
+//         event.target.classList.toggle('yellowBlock');
+//     } 
+// });
+// }
 
-function blueBlock() {
-    var _loop = function _loop(a) {
-        var allSub = subEl[a];
-        allSub.addEventListener('click', function (event) {
-            if (!allSub) return;
-            if (this == event.target) {
-                console.log(event.target);
-                event.target.style.background = 'lightblue';
-            }
-        });
-    };
 
-    for (var a = 0; a < subEl.length; a++) {
-        _loop(a);
-    }
-}
+// function redBlock(){
+//     for (let i = 0; i < spanText.length; i++) {
+//         let allSpan = spanText[i];
+//         allSpan.addEventListener('click', function(event){
+//             if (!this == event.target) return;
+//             if (this == event.target) {
+//                 console.log(event.target);
+//                 event.target.classList.toggle('someColor');
+//             }
+//         });   
+//     }
+// }
 
-function init() {
-    blueBlock();
-    redBlock();
-    getMain();
-}
-init();
+// function blueBlock(){
+//     for(let a = 0; a < subEl.length; a++) {
+//         let allSub = subEl[a];
+//         allSub.addEventListener('click', function(event){
+//         if (!allSub) return;
+//         if (this == event.target) {
+//             console.log(event.target);
+//             event.target.style.background = 'lightblue';
+//         }
+//     });
+// }
+// } 
 
-var txt = document.querySelector('.text');
+// function init(){
+//     blueBlock();
+//     redBlock();
+//     getMain();
+// }
+// init();
+
 
 // function Menu(option) {
 
@@ -1204,42 +1231,39 @@ var txt = document.querySelector('.text');
 //   });
 
 
-function getChildren() {
-    var targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
+//   function getChildren(){
+//   let targetElem = document.querySelectorAll('.target'); // мы нашли все элементы - детей
+//  for (let i = 0; i < targetElem.length; i++) { // узнали сколько их и применили к ним обработчик событий для каждого
+//   targetElem[i].onclick = function(event) { 
+//       if (event.target.closest('.parent')) { // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
+//         targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
+//       }
+//   };
+// }
 
-    var _loop2 = function _loop2(i) {
-        // узнали сколько их и применили к ним обработчик событий для каждого
-        targetElem[i].onclick = function (event) {
-            if (event.target.closest('.parent')) {
-                // если событие на котором произошло действие имеет ближайший тег или класс, то применим к нему...
-                targetElem[i].classList.toggle('changeColor'); // если все ок, то для каждого Ребенка будет примененно правило
-            }
-        };
-    };
+// }  getChildren();
 
-    for (var i = 0; i < targetElem.length; i++) {
-        _loop2(i);
-    }
-}getChildren();
 
-var outerBlock = document.querySelector('.outer-block');
-var subBlock = document.querySelectorAll('.sub-block');
-var childrenBlock = document.querySelectorAll('.children-block');
+// let outerBlock = document.querySelector('.outer-block');
+// let subBlock = document.querySelectorAll('.sub-block');
+// let childrenBlock = document.querySelectorAll('.children-block');
 
-function ChangeElement(options) {
-    var elem = options.elem;
-    elem.onclick = function (event) {
-        if (event.target.closest('body')) {
-            toggleElement();
-            console.log(this.tagName);
-        }
-    };
-    function toggleElement() {
 
-        elem.classList.toggle('someColor');
-    }
-    this.toggleElement = toggleElement;
-}
+// function ChangeElement(options) {
+//         const elem = options.elem;  
+//         elem.onclick = function(event){
+//             if (event.target.closest('body')) {
+//                  toggleElement();
+//                 console.log(this.tagName)
+//             }
+//         };
+//         function toggleElement(){
+
+//             elem.classList.toggle('someColor');
+//         }
+//         this.toggleElement = toggleElement;
+//     }
+
 
 // function getAllElements(element){
 //     if (outerBlock.hasChildNodes(subBlock) && outerBlock.hasChildNodes(childrenBlock)) {
@@ -1254,21 +1278,28 @@ function ChangeElement(options) {
 // getAllElements(childrenBlock);
 
 
-var change = new ChangeElement({
-    elem: outerBlock
-});
-change.toggleElement();
+// const change = new ChangeElement({
+//     elem: outerBlock
+// });
+// change.toggleElement();
 
-var containerList = document.createElement('div');
-containerList.className = 'container-list';
 
-var menu = new Menu({
-    title: 'Search',
-    items: ['Rambler', 'Yandex', 'Google', 'Yahoo']
-});
+// let containerList = document.createElement('div');
+// containerList.className = 'container-list';
 
-var elem = menu.getElem();
-document.body.appendChild(elem);
+// let menu = new Menu({
+//     title: 'Search',
+//     items: [
+//         'Rambler',
+//         'Yandex',
+//         'Google',
+//         'Yahoo'
+//     ]
+// });
+
+// let elem = menu.getElem();
+// document.body.appendChild(elem);
+
 
 // function Menu(option) {
 //     let elem;
@@ -1328,65 +1359,68 @@ document.body.appendChild(elem);
 // }
 
 
-function Menu(options) {
-    var elem;
+// function Menu(options) {
+//     var elem;
 
-    function getElem() {
-        if (!elem) render();
-        return elem;
-    }
+//     function getElem() {
+//       if (!elem) render();
+//       return elem;
+//     }
 
-    function render() {
-        elem = document.createElement('div');
-        elem.className = "menu";
+//     function render() {
+//       elem = document.createElement('div');
+//       elem.className = "menu";
 
-        var titleElem = document.createElement('span');
-        elem.appendChild(titleElem);
-        titleElem.className = "title";
-        titleElem.textContent = options.title;
+//       var titleElem = document.createElement('span');
+//       elem.appendChild(titleElem);
+//       titleElem.className = "title";
+//       titleElem.textContent = options.title;
 
-        elem.onmousedown = function () {
-            return false;
-        };
+//       elem.onmousedown = function() {
+//         return false;
+//       };
 
-        elem.onclick = function (event) {
-            if (event.target.closest('.title')) {
-                toggle();
-            }
-        };
-    }
+//       elem.onclick = function(event) {
+//         if (event.target.closest('.title')) {
+//           toggle();
+//         }
+//       }
 
-    function renderItems() {
-        var items = options.items || [];
-        var list = document.createElement('ul');
-        items.forEach(function (item) {
-            var li = document.createElement('li');
-            li.textContent = item;
-            list.appendChild(li);
-        });
-        elem.appendChild(list);
-    }
+//     }
 
-    function open() {
-        if (!elem.querySelector('ul')) {
-            renderItems();
-        }
-        elem.classList.add('open');
-    };
+//     function renderItems() {
+//       var items = options.items || [];
+//       var list = document.createElement('ul');
+//       items.forEach(function(item) {
+//         var li = document.createElement('li');
+//         li.textContent = item;
+//         list.appendChild(li);
+//       });
+//       elem.appendChild(list);
+//     }
 
-    function close() {
-        elem.classList.remove('open');
-    };
+//     function open() {
+//       if (!elem.querySelector('ul')) {
+//         renderItems();
+//       }
+//       elem.classList.add('open');
+//     };
 
-    function toggle() {
-        if (elem.classList.contains('open')) close();else open();
-    };
+//     function close() {
+//       elem.classList.remove('open');
+//     };
 
-    this.getElem = getElem;
-    this.toggle = toggle;
-    this.close = close;
-    this.open = open;
-}
+//     function toggle() {
+//       if (elem.classList.contains('open')) close();
+//       else open();
+//     };
+
+//     this.getElem = getElem;
+//     this.toggle = toggle;
+//     this.close = close;
+//     this.open = open;
+//   }
+
 
 //   const people = ['Misha', 'Sasha', 'Julia', 'Danila'];
 //  let joinName = people.join(', ');
@@ -1460,121 +1494,130 @@ function Menu(options) {
 // console.log(plus(one, two));
 
 
-var numbers = [2, 4, 6, 8, 10];
+// let numbers = [2, 4, 6, 8, 10];
 
-var sum = numbers.map(function (item) {
-    return item + item;
-});
-console.log(sum);
+// let sum = numbers.map(function(item){
+//     return item + item;
+// });
+// console.log(sum);
 
-var fruits = ['Apple', 'Orange', 'waterlemon', 'Cranberry'];
-var fruitJuce = fruits.map(function (frut) {
-    return frut + ' juce';
-});
-console.log(fruitJuce);
 
-var parkRides = [["Birch Bumpers", 40], ["Pines Plunge", 55][("Cedar Coaster", 20)], ["Ferris Wheel of Firs", 90]];
+// const fruits = ['Apple', 'Orange', 'waterlemon', 'Cranberry'];
+// const fruitJuce = fruits.map(function(frut) {
+//     return (`${frut} juce`);
+// });
+// console.log(fruitJuce);
 
-var fastPassQueue = ["Cedar Coaster", "Pines Plunge", "Birch Bumpers", "Pines Plunge"];
 
-/* Создадим функцию конструктор, в которую будем помещать данные о пассажирах и билетах  */
+// var parkRides = [ ["Birch Bumpers", 40] , ["Pines Plunge", 55]
+//  ["Cedar Coaster", 20] , ["Ferris Wheel of Firs", 90] ];
 
-function assignTorpedo(passengerArray) {
-    return function (name) {
-        for (var i = 0; i < passengerArray.length; i++) {
-            // найдем имя пассажира в списке 
-            if (passengerArray[i] == name) {
-                // если массив с именами совпадает с именем которое мы передадим, то вывести...
-                // то выводим имя и номер под которым оно находится в массиве
-                console.log('hey  ' + name + ' man your post at torpedo ' + (i + 1) + ' !');
-            }
-        }
-    };
-}
-var subPassengers = ["Luke", "Leia", "Han", "Chewie", "Yoda", "R2-D2"]; // subPassengers эо второй аргумент функции, массив с именами
-var getName_1 = assignTorpedo(subPassengers);
-getName_1('Han');
+//  var fastPassQueue = [ "Cedar Coaster", "Pines Plunge", "Birch Bumpers", "Pines Plunge" ];
 
-function buildCoveTicketMaker(transport) {
-    // transport - имя транспорта, передаваемая в новой переменной 
-    var passengerNumber = 0; // начнем нумерацию каждого пассажира с 0 (нуля)
-    return function (name) {
-        // nmae - имя пассажира, передается в параметре ТРАНСПОРТА  - getSubmarineTicket('Sten');
-        passengerNumber++; // когда вызывана функция с каким либо транспортом, мы добавляем пассажира 
-        // каждый раз когда будет вызвана повторно функция с одним и тем же именем, счетчик увеличится на 1
-        console.log('Here is your transport ' + transport + ' welcome to the Cold cove ' + name + ' you are passenger # ' + passengerNumber);
-        /* passengerNumber - Каждый раз, когда билет «печатается», этот
-            Номер пассажира будет содержать
-            точное количество раз сколько раз 
-            билет был выдан */
-    };
-}
 
-var getSubmarineTicket = buildCoveTicketMaker('Submarine'); // создали переменную, и передали в нее функцию конструктор, в ее параметре есть имя транспорта
-var getBattleshiptTicket = buildCoveTicketMaker('Battleship');
-var getBirdTicket = buildCoveTicketMaker('bird');
+//  /* Создадим функцию конструктор, в которую будем помещать данные о пассажирах и билетах  */
 
-getSubmarineTicket('Sten'); // в новой переменной задаем параметр - имени, т.к. функция констсруктор возвращает АНОНИМНУЮ функцию и там есть аргумент NAME
-getBattleshiptTicket('Nick');
-getBirdTicket('Parrot');
 
-function capacityStatus(numPass, cap) {
-    if (numPass > cap) {
-        noSeats();
-    } else {
-        seats();
-    }
+// function assignTorpedo(passengerArray) { 
+//     return function( name ) {
+//         for (let i = 0; i < passengerArray.length; i++) {
+//             // найдем имя пассажира в списке 
+//             if (passengerArray[i] == name) { // если массив с именами совпадает с именем которое мы передадим, то вывести...
+//                     // то выводим имя и номер под которым оно находится в массиве
+//                     console.log(`hey  ${name} man your post at torpedo ${(i + 1)} !`);
+//             }
+//         }
+//     }; 
+// }
+// let subPassengers = ["Luke", "Leia", "Han", "Chewie", "Yoda", "R2-D2"]; // subPassengers эо второй аргумент функции, массив с именами
+// let getName_1 = assignTorpedo(subPassengers);
+// getName_1('Han');
 
-    function noSeats() {
-        console.log('no seats!');
-        return false;
-    }
-    function seats() {
-        console.log('have seats!');
-        return true;
-    }
-}
 
-capacityStatus(6, 20);
+// function buildCoveTicketMaker(transport) { // transport - имя транспорта, передаваемая в новой переменной 
+//     let passengerNumber = 0; // начнем нумерацию каждого пассажира с 0 (нуля)
+//     return function(name) { // nmae - имя пассажира, передается в параметре ТРАНСПОРТА  - getSubmarineTicket('Sten');
+//         passengerNumber++; // когда вызывана функция с каким либо транспортом, мы добавляем пассажира 
+//         // каждый раз когда будет вызвана повторно функция с одним и тем же именем, счетчик увеличится на 1
+//         console.log(`Here is your transport ${transport} welcome to the Cold cove ${name} you are passenger # ${passengerNumber}`);
+//         /* passengerNumber - Каждый раз, когда билет «печатается», этот
+//             Номер пассажира будет содержать
+//             точное количество раз сколько раз 
+//             билет был выдан */
+
+//     }
+// }
+
+
+// let getSubmarineTicket = buildCoveTicketMaker('Submarine'); // создали переменную, и передали в нее функцию конструктор, в ее параметре есть имя транспорта
+// let getBattleshiptTicket = buildCoveTicketMaker('Battleship');
+// let getBirdTicket = buildCoveTicketMaker('bird');
+
+
+// getSubmarineTicket('Sten');// в новой переменной задаем параметр - имени, т.к. функция констсруктор возвращает АНОНИМНУЮ функцию и там есть аргумент NAME
+// getBattleshiptTicket('Nick');
+// getBirdTicket('Parrot');
+
+
+// function capacityStatus(numPass, cap) {
+//     if ( numPass > cap) {
+//         noSeats();
+//     } else {
+//         seats();
+//     }
+
+//      function noSeats(){
+//         console.log('no seats!');
+//         return false;
+//     }
+//      function seats(){
+//         console.log('have seats!');
+//         return true;
+//     }
+// }
+
+// capacityStatus(6, 20);
+
 
 /*    Объекты */
 
-var aquarium = {
-    Nemo: {
-        type: "fish",
-        age: 23,
-        length: 3.7,
-        color: 'orange-white'
-    },
-    Marlin: {
-        type: "fish",
-        age: 10,
-        length: 1.7,
-        color: 'white'
-    },
+// const aquarium = {
+//     Nemo: {
+//         type: "fish",
+//         age: 23,
+//         length: 3.7,
+//         color: 'orange-white'
+//     },
+//     Marlin: {
+//         type: "fish",
+//         age: 10,
+//         length: 1.7,
+//         color: 'white'
+//     },
 
-    Dory: {
-        type: "i Dory!",
-        age: 5,
-        length: 2,
-        color: 'blue'
-    },
+//     Dory: {
+//         type: "i Dory!",
+//         age: 5,
+//         length: 2,
+//         color: 'blue'
+//     },
 
-    "Coral castle": {
-        type: "build",
-        age: 76,
-        height: '213',
-        width: 260,
-        owner: 'Artur'
-    },
-    addCritter: function addCritter(name, type, age, length, color) {
-        this[name] = {
-            type: type,
-            age: age,
-            color: color
-        };
-    }
-};
+//     "Coral castle" : {
+//         type: "build",
+//         age: 76,
+//         height: '213',
+//         width: 260,
+//         owner: 'Artur'
+//     },
+//     addCritter: function(name, type, age, length, color) {
+//         this[name] = {
+//             type: type,
+//             age: age,
+//             color: color
+//         }
+//     }
+// };
+
 
 // aquarium.addCritter('Bubbles', 'fish', 12, 4.7, 'yellow');
 // aquarium.addCritter('SHARK!', 'fish', 7, 3.4, 'grey');
@@ -1620,63 +1663,237 @@ var aquarium = {
 // getArgs(1, 2, 3, 4);
 
 
-var user = {
-    firstName: "Вася",
-    sayHi: function sayHi() {
-        console.log(this.firstName);
-    }
-};
+// var user = {
+//     firstName: "Вася",
+//     sayHi: function() {
+//         console.log( this.firstName );
+//     }
+//   };
 
-setTimeout(user.sayHi, 1000); // undefined (не Вася!)
+//   setTimeout(user.sayHi, 1000); // undefined (не Вася!)
 
 
 //------------------------- BIND -----------------------
 
-var users = {
-    data: [{ name: 'Mikle' }, { name: 'Bruce' }, { name: 'John' }, { name: 'Deeper' }, { name: 'Luce' }],
-    showName: function showName(event) {
-        // for (let i = 0; i < this.data.length; i++) {
-        //    // console.log(this.data[i]);
-        //   //  let dataname = this.data[i];
-        //     for (let key in dataname) {
-        //         console.log(dataname[key]);
+// const users = {
+//     data: [
+//         {name: 'Mikle'},
+//         {name: 'Bruce'},
+//         {name: 'John'},
+//         {name: 'Deeper'},
+//         {name: 'Luce'}
+//     ],
+//     showName(event) {
+//         // for (let i = 0; i < this.data.length; i++) {
+//         //    // console.log(this.data[i]);
+//         //   //  let dataname = this.data[i];
+//         //     for (let key in dataname) {
+//         //         console.log(dataname[key]);
 
-        //     }
-        // }
-        console.log(this.data[2].name);
-    }
-};
+//         //     }
+//         // }
+//         console.log(this.data[2].name);
+//     }
+// };
 
-var showObj = document.querySelector('.showObject');
-// console.log(showObj);
-// showObj.addEventListener('click', function(event){
+// let showObj = document.querySelector('.showObject');
+// // console.log(showObj);
+// // showObj.addEventListener('click', function(event){
+// //     users.showName();
+// // });
+
+// showObj.onclick = function(ev){
 //     users.showName();
+// }
+
+
+// const employee = {
+//     name: 'John',
+//     phone: '+7 (765) 000-98-34',
+//     company: 'Opera Software',
+//     email: 'john@opera.com'
+//   };
+
+//   const keys = Object.keys(employee);
+//   console.log(keys); // ["name","phone","company","email","key"]
+
+
+//   keys.forEach(function(key) {
+//     console.log(key + ': ' + employee[key]);
+//   });
+
+
+// let objName = {
+//   name: "Shon",
+//   age: 24,
+//   secondName: "Fisher"
+// };
+
+// for (let prop in objName) {
+//   if (!objName.hasOwnProperty(prop)) continue;
+//   console.log(`property ${prop} ${objName[prop]}`);
+// }
+
+
+// const animals = [
+//   {name: "Katty", spices: "dog"},
+//   {name: "Bobby", spices: "parrot"},
+//   {name: "Mishel", spices: "cat"},
+//   {name: "Robby", spices: "fish"},
+//   {name: "Greg", spices: "turtles"}
+// ];
+
+// let prop = animals.map((elements) => `${elements.name} ${elements.spices}`);
+// console.log(prop);
+
+
+// const orders = [
+//   {amount: 5},
+//   {amount: 2},
+//   {amount: 20},
+//   {amount:15},
+//   {amount: 6},
+// ];
+
+
+// let totalSum = orders.reduce((sum, order)=> {
+//   console.log('sum ' + sum, '+ order ' + order.amount );
+//   return sum + order.amount;
+// }, 0);
+
+// console.log(totalSum);
+
+
+// let someSum = orders.reduce((item1, item2) => {
+//   return  item1 + item2.amount;
+// }, 0);
+// console.log(someSum);
+
+
+// const arr = [2, 4];
+
+// let arrSum = arr.reduce((i, g) => {
+//   return i * g;
 // });
+// console.log(arrSum);
 
-showObj.onclick = function (ev) {
-    users.showName();
+
+// const cat = {
+//   makeSound: function(){
+//     console.log(this.sound); // создали метод в объекте, где вызываем контекст будущего объекта
+//   }
+// };
+
+// let mike = Object.create(cat); // создали новый объект в переменной mike, в новый об. передали прототип объекта cat
+// mike.sound = 'meeeeoow!'; // передадим какоей то значение в объект CAT в его локальный this
+// mike.makeSound(); // вызовем mike через метод makeSound куда передали локальный sound
+
+
+//--------------------------деструктуризации объекта----------------------
+
+var _ref = ["Sten", "Nick", "Some else"],
+    firstName = _ref[0],
+    lastName = _ref[1]; // some else будет отброшено
+
+console.log(firstName, lastName);
+
+var name = 'Юрий',
+    city = 'Рим',
+    someValue = ['и еще какое', 'то значение с', 'оператором SPREAD'];
+
+console.log(name, city, someValue); // Юрий Рим (3) ["и еще какое", "то значение с", "оператором SPREAD"]
+
+var _IWalkingOnMainSt = 'I walking on main street alone'.split(" "),
+    _IWalkingOnMainSt2 = _toArray(_IWalkingOnMainSt),
+    firstValue = _IWalkingOnMainSt2[0],
+    secondValue = _IWalkingOnMainSt2[1],
+    elseSome = _IWalkingOnMainSt2.slice(2);
+
+console.log(firstValue, secondValue, elseSome); // I walking (4) ["on", "main", "street", "alone"]
+
+
+var animals = {
+  value: "Grey tea",
+  sugar: true,
+  size: "Big"
 };
 
-var employee = {
-    name: 'John',
-    phone: '+7 (765) 000-98-34',
-    company: 'Opera Software',
-    email: 'john@opera.com'
-};
+var value = animals.value,
+    sugar = animals.sugar,
+    c = animals.c; // дадим НОВЫМ переменным свойства объекта - animals
 
-var keys = Object.keys(employee);
-console.log(keys); // ["name","phone","company","email","key"]
+console.log(value, sugar, c + "  у переменной С будет undefined, т.к С нет в свойствах объекта"); // теперь каждая переменная содержит свойство объекта Animals, которое соответствует имени Ключа объекта, остальное будет undefined
 
 
-keys.forEach(function (key) {
-    console.log(key + ': ' + employee[key]);
-});
+function getWords(_ref2) {
+  var subject = _ref2.subject,
+      verb = _ref2.verb,
+      people = _ref2.people;
 
-//  Arrow function
+  return subject + ", " + verb + ", " + people;
+} // дадим аргументы функции, и вернем их
 
 
-var b = 20;
-if (true) {
-    var _b = 10;
-    console.log(_b + ' inner');
+var propFunction = {
+  subject: "Объект",
+  verb: "слово",
+  people: "Люди"
+}; // дали свойства объекту с похожими именами как в аргументах функции, и передадим их в функции при ее вызове через контекст вызова
+
+console.log(getWords(propFunction)); // тут вызвали функцию, и в нее передали аргумент Объекта people с его свойствами
+
+
+function addPrefix(word) {
+  var prefixWords = [];
+
+  for (var _len = arguments.length, prefix = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    prefix[_key - 1] = arguments[_key];
+  }
+
+  for (var i = 0; i < prefix.length; i++) {
+    prefixWords[i] = word + prefix[i];
+  }
+  return prefixWords;
 }
+
+// addPrefix("He", "llo", "John!"); ["hello", "heJohn!"]
+console.log(addPrefix("PREfix-", "llo", "John!")); //  ["PREfix llo", "PREfix John!", "PREfix undefined", "PREfix undefined", "PREfix undefined", "PREfix undefined", "PREfix undefined"]
+
+var bruce = {
+  name: "Bruce"
+};
+
+var john = {
+  name: "John"
+};
+
+function getName() {
+  return "Hello, my name is " + this.name;
+}
+
+getName.call(bruce);
+console.log(getName.call(bruce)); // вызовем свойство объекта через метод call передав туда this объекта, то есть имя Брюс
+
+
+var num = [2, 10, -33, 12, 1];
+console.log(Math.max.apply(null, num));
+
+console.log(Math.min.apply(Math, num));
+
+alert(str); // ?
+var str = "Hello";
+
+// let a = X;
+// alert( a == X ); // false
+
+// function MyArray() { }
+// MyArray.prototype = [];
+
+// let arr = new MyArray();
+// arr.push(1, 2, 3);
+// alert(arr.length);
+
+var y = 1;
+var x = y = 2;
+
+alert(x);

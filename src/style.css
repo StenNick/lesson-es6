@@ -93,6 +93,21 @@ body * .container .child-block {
       padding: 20px;
   }
 
+<<<<<<< HEAD
+
+  .cup{
+    width: 300px;
+    height: auto;
+    margin: 30px auto;
+    display: block;
+  }
+
+
+
+ #test li{
+    padding: 10px;
+    border: 1px solid #333;
+=======
   .colorBlock{
       height: 200px;
       width: 200px;
@@ -340,6 +355,9 @@ body * .container .child-block {
       padding: 10px;
       border: 1px solid #333;
       text-align: center;
+<<<<<<< HEAD
+>>>>>>> a3fb893ac3cf950b7a4d90d181c385f169ae8a3b
+=======
   }
 
 
@@ -467,4 +485,5 @@ body * .container .child-block {
         margin: 10px;
         cursor: pointer;
         border-radius: 50px;
+>>>>>>> 58d38f949f4f10499a4d97c14ef077ac2fcc0d65
   }
