@@ -2023,25 +2023,50 @@
 
 
 
-const SYM = Symbol();
-const someObj = {
-  name: "Sonya",
-  age: 22,
-  sex: "girl",
-  [SYM] : 4
-};
+// const SYM = Symbol();
+// const someObj = {
+//   name: "Sonya",
+//   age: 22,
+//   sex: "girl",
+//   [SYM] : 4
+// };
 
-Object.keys(someObj).forEach(prop => console.log(`${prop} : ${someObj[prop]}`)); // выведет все свойства объекта
-// 1946 name : Sonya
-// 1946 age : 22
-// sex : girl
+// Object.keys(someObj).forEach(prop => console.log(`${prop} : ${someObj[prop]}`)); // выведет все свойства объекта
+// // 1946 name : Sonya
+// // 1946 age : 22
+// // sex : girl
 
 
-const X_name = {
-  Apple: "apple",
-  xPhone: " X-phone",
-  juce: " juce",
-  xXx: " xxx "
-};
+// const X_name = {
+//   Apple: "apple",
+//   xPhone: " X-phone",
+//   juce: " juce",
+//   xXx: " xxx "
+// };
 
-Object.keys(X_name).filter(prop => prop.match(/^x/)).forEach(prop => console.log(`${prop} : ${X_name[prop]}`)); // выведем все имена начинающиеся с Х
+// Object.keys(X_name).filter(prop => prop.match(/^x/)).forEach(prop => console.log(`${prop} : ${X_name[prop]}`)); // выведем все имена начинающиеся с Х
+
+
+
+// ----------------------------- Classes---------------------------//
+
+class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+    this.userSpeed = ["P", "N", "R", "D"];
+    this.userSPD = this.userSpeed[0];
+  }
+  shift(speed) {
+    if (this.userSPD.indexOf(speed) < 0)
+      throw new Error (" ERROR gear " + speed);
+      this.userSPD = speed;
+  }
+}
+
+
+const car1 = new Car(4);
+const car2 = new Car(0);
+
+console.log(car1);
+console.log(car2);
