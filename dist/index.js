@@ -1,6 +1,6 @@
 "use strict";
 
-function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // let one = true;
 // let two = false;
@@ -1791,97 +1791,75 @@ function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 //--------------------------деструктуризации объекта----------------------
 
-var _ref = ["Sten", "Nick", "Some else"],
-    firstName = _ref[0],
-    lastName = _ref[1]; // some else будет отброшено
-
-console.log(firstName, lastName);
-
-var name = 'Юрий',
-    city = 'Рим',
-    someValue = ['и еще какое', 'то значение с', 'оператором SPREAD'];
-
-console.log(name, city, someValue); // Юрий Рим (3) ["и еще какое", "то значение с", "оператором SPREAD"]
-
-var _IWalkingOnMainSt = 'I walking on main street alone'.split(" "),
-    _IWalkingOnMainSt2 = _toArray(_IWalkingOnMainSt),
-    firstValue = _IWalkingOnMainSt2[0],
-    secondValue = _IWalkingOnMainSt2[1],
-    elseSome = _IWalkingOnMainSt2.slice(2);
-
-console.log(firstValue, secondValue, elseSome); // I walking (4) ["on", "main", "street", "alone"]
+// const [firstName, lastName] = ["Sten", "Nick", "Some else"]; // some else будет отброшено
+// console.log(firstName, lastName);
 
 
-var animals = {
-  value: "Grey tea",
-  sugar: true,
-  size: "Big"
-};
+// const [name, city, ...someValue] = ['Юрий','Рим', 'и еще какое', 'то значение с', 'оператором SPREAD'];
+// console.log(name, city, someValue); // Юрий Рим (3) ["и еще какое", "то значение с", "оператором SPREAD"]
 
-var value = animals.value,
-    sugar = animals.sugar,
-    c = animals.c; // дадим НОВЫМ переменным свойства объекта - animals
-
-console.log(value, sugar, c + "  у переменной С будет undefined, т.к С нет в свойствах объекта"); // теперь каждая переменная содержит свойство объекта Animals, которое соответствует имени Ключа объекта, остальное будет undefined
+// const [firstValue, secondValue, ...elseSome] = 'I walking on main street alone'.split(" ");
+// console.log(firstValue, secondValue, elseSome); // I walking (4) ["on", "main", "street", "alone"]
 
 
-function getWords(_ref2) {
-  var subject = _ref2.subject,
-      verb = _ref2.verb,
-      people = _ref2.people;
+// const animals = {
+//   value: "Grey tea",
+//   sugar: true,
+//   size: "Big"
+// };
 
-  return subject + ", " + verb + ", " + people;
-} // дадим аргументы функции, и вернем их
-
-
-var propFunction = {
-  subject: "Объект",
-  verb: "слово",
-  people: "Люди"
-}; // дали свойства объекту с похожими именами как в аргументах функции, и передадим их в функции при ее вызове через контекст вызова
-
-console.log(getWords(propFunction)); // тут вызвали функцию, и в нее передали аргумент Объекта people с его свойствами
+// const {value, sugar, c} = animals; // дадим НОВЫМ переменным свойства объекта - animals
+// console.log(value, sugar, c + "  у переменной С будет undefined, т.к С нет в свойствах объекта"); // теперь каждая переменная содержит свойство объекта Animals, которое соответствует имени Ключа объекта, остальное будет undefined
 
 
-function addPrefix(word) {
-  var prefixWords = [];
+// function getWords({subject, verb, people}) {
+//   return `${subject}, ${verb}, ${people}`;
+// } // дадим аргументы функции, и вернем их
 
-  for (var _len = arguments.length, prefix = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    prefix[_key - 1] = arguments[_key];
-  }
 
-  for (var i = 0; i < prefix.length; i++) {
-    prefixWords[i] = word + prefix[i];
-  }
-  return prefixWords;
-}
+// const propFunction = {
+//   subject: "Объект",
+//   verb: "слово",
+//   people: "Люди"
+// }; // дали свойства объекту с похожими именами как в аргументах функции, и передадим их в функции при ее вызове через контекст вызова
+
+// console.log(getWords(propFunction)); // тут вызвали функцию, и в нее передали аргумент Объекта people с его свойствами
+
+
+// function addPrefix(word, ...prefix) {
+//   const prefixWords = [];
+//   for (let i = 0; i < prefix.length; i++) {  
+//     prefixWords[i] = word + prefix[i];
+//   }
+//   return prefixWords;
+// }
 
 // addPrefix("He", "llo", "John!"); ["hello", "heJohn!"]
-console.log(addPrefix("PREfix-", "llo", "John!")); //  ["PREfix llo", "PREfix John!", "PREfix undefined", "PREfix undefined", "PREfix undefined", "PREfix undefined", "PREfix undefined"]
+// console.log(addPrefix("PREfix-", "llo", "John!")) //  ["PREfix llo", "PREfix John!", "PREfix undefined", "PREfix undefined", "PREfix undefined", "PREfix undefined", "PREfix undefined"]
 
-var bruce = {
-  name: "Bruce"
-};
+// const bruce = {
+//   name: "Bruce"
+// };
 
-var john = {
-  name: "John"
-};
+// const john = {
+//   name: "John"
+// };
 
-function getName() {
-  return "Hello, my name is " + this.name;
-}
+// function getName() {
+//   return `Hello, my name is ${this.name}`;
+// }
 
-getName.call(bruce);
-console.log(getName.call(bruce)); // вызовем свойство объекта через метод call передав туда this объекта, то есть имя Брюс
+// getName.call(bruce);
+// console.log(getName.call(bruce)); // вызовем свойство объекта через метод call передав туда this объекта, то есть имя Брюс
 
 
-var num = [2, 10, -33, 12, 1];
-console.log(Math.max.apply(null, num));
+// const num = [2,10, -33, 12, 1];
+// console.log(Math.max.apply(null, num));
 
-console.log(Math.min.apply(Math, num));
+// console.log(Math.min(...num));
 
-alert(str); // ?
-var str = "Hello";
+// alert(str); // ?
+// let str = "Hello";
 
 // let a = X;
 // alert( a == X ); // false
@@ -1893,7 +1871,94 @@ var str = "Hello";
 // arr.push(1, 2, 3);
 // alert(arr.length);
 
-var y = 1;
-var x = y = 2;
+// let y = 1;
+// let x = y = 2;
 
-alert(x);
+// alert(x);
+
+
+// const makeFillArray = new Array(5).fill(2);
+// console.log(makeFillArray);
+// console.log(makeFillArray.fill("a"));
+// console.log(makeFillArray.fill("fuck",1, 4));
+// console.log(makeFillArray.fill("lesson", -3, -1));
+
+// const lemon = {
+//   color: "yellow"
+// };
+
+// const arr2 = [1, 5, "NAME", true, lemon, ['some', 'array']];
+
+// console.log(arr2.indexOf(lemon));
+
+
+// ------------ findIndex
+
+// const arrObj = [{
+//   name: "Judi",
+//   age: 24
+// }, {
+//   job: "Developer",
+//   name:"Pol",
+//   secondName: "Fisher"
+// }];
+
+// console.log(arrObj.findIndex( index => index.age === 24)); // находим с помощь функции свойство в массиве
+
+// // ---------- find
+// console.log(arrObj.find(elementIndex => elementIndex.age === 24));
+
+// const names = arrObj.map(index => index.name);
+// console.log(names)
+
+
+// const arr1 = [{name: 'greg', age: 24, price: 20}, {name: 'Judi', price:55, age: 19}];
+// const names = arr1.map(index =>  index.name);
+// const price = arr1.map(el => el.price);
+// const summprices = price.map(el => el + 10);
+// console.log(summprices);
+
+
+// const someNumbers = [5, 7, 2, 4];
+// const sumNumber = someNumbers.reduce((x, y) => x += y, 0); // or x + x
+// console.log(sumNumber);
+
+// const arr1 = [1, 2, 3, 4];
+// arr1.push(5, 6, 7);
+// console.log(arr1 + ' push'); // 1 2 3 4 5 6 7  добавил в конец числа
+
+// arr1.pop(-1);
+// console.log(arr1 + ' pop'); // удалил тот элемент что указали
+
+// const arr2 = ['a', 'b', 'c'];
+// arr2.unshift('b', 'e!');
+// console.log(arr2 + ' unshift');
+
+
+var SYM = Symbol();
+var someObj = _defineProperty({
+  name: "Sonya",
+  age: 22,
+  sex: "girl"
+}, SYM, 4);
+
+Object.keys(someObj).forEach(function (prop) {
+  return console.log(prop + " : " + someObj[prop]);
+}); // выведет все свойства объекта
+// 1946 name : Sonya
+// 1946 age : 22
+// sex : girl
+
+
+var X_name = {
+  Apple: "apple",
+  xPhone: " X-phone",
+  juce: " juce",
+  xXx: " xxx "
+};
+
+Object.keys(X_name).filter(function (prop) {
+  return prop.match(/^x/);
+}).forEach(function (prop) {
+  return console.log(prop + " : " + X_name[prop]);
+}); // выведем все имена начинающиеся с Х
