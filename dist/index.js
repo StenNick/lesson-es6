@@ -1,10 +1,10 @@
 "use strict";
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _obj, _obj2;
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
@@ -1971,52 +1971,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 // ----------------------------- Classes---------------------------//
 
-var Car = function () {
-  function Car(make, model) {
-    _classCallCheck(this, Car);
+// class Car {
+//   constructor(make, model) {
+//     this.make = make;
+//     this.model = model;
+//     this.userSpeed = ["P", "N", "R", "D"];
+//     this.userSPD = this.userSpeed[0];
+//   }
+//   shift(speed) {
+//     if (this.userSPD.indexOf(speed) < 0)
+//       throw new Error (" ERROR gear " + speed);
+//       this.userSPD = speed;
+//   }
+// }
 
-    this.make = make;
-    this.model = model;
-    this.userSpeed = ["P", "N", "R", "D"];
-    this.userSPD = this.userSpeed[0];
-  }
 
-  _createClass(Car, [{
-    key: "shift",
-    value: function shift(speed) {
-      if (this.userSPD.indexOf(speed) < 0) throw new Error(" ERROR gear " + speed);
-      this.userSPD = speed;
-    }
-  }]);
+// const car1 = new Car("Tesla", "Model S");
+// const car2 = new Car(0);
 
-  return Car;
-}();
 
-var car1 = new Car("Tesla", "Model S");
-var car2 = new Car(0);
+// console.log(car1);
+// console.log(car2);
 
-console.log(car1);
-console.log(car2);
 
-var User = function () {
-  function User(name) {
-    _classCallCheck(this, User);
+// class User{
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   sayHi() {
+//     console.log(this.name);
+//   }
+// }
 
-    this.name = name;
-  }
-
-  _createClass(User, [{
-    key: "sayHi",
-    value: function sayHi() {
-      console.log(this.name);
-    }
-  }]);
-
-  return User;
-}();
-
-var user1 = new User('Sadik');
-user1.sayHi();
+// let user1 = new User('Sadik');
+// user1.sayHi();
 
 //---------------- диструктуризация
 
@@ -2190,7 +2178,7 @@ var Cat = function (_Rabbit) {
     // у класса Cat не может быть КОНСТРУКТОРА, Я ХЗ ПОЧЕМУ.... госпади
     value: function go() {
       // дадим ему функцию GO() как у класса Кролик, и присвоем ее же через метод SUPER
-      debugger;
+
       _get(Cat.prototype.__proto__ || Object.getPrototypeOf(Cat.prototype), "go", this).call(this);
       console.log(" jump"); // теперь и этот метод класса Cat дополнит свойства класса Кролик
     }
@@ -2201,3 +2189,85 @@ var Cat = function (_Rabbit) {
 
 var cat1 = new Cat("Milka").go(); // скажем Cat, возьми функцию GO() и выполни ее
 console.log(cat1); // Milka walk and JUMP
+
+
+// --------- передача конструктора другому подклассу
+
+var Boss = function () {
+  function Boss(name, coffe) {
+    _classCallCheck(this, Boss);
+
+    this.name = name;
+    this.coffe = coffe;
+  }
+
+  _createClass(Boss, [{
+    key: "takeCommand",
+    value: function takeCommand() {
+      console.log("\u043F\u0440\u0438\u043D\u0435\u0441\u0438\u0442\u0435 " + this.name + " \u0441\u0442\u0430\u043A\u0430\u043D " + this.coffe);
+    }
+  }]);
+
+  return Boss;
+}();
+
+var worker = function (_Boss) {
+  _inherits(worker, _Boss);
+
+  function worker() {
+    _classCallCheck(this, worker);
+
+    // через метод super передадим ИМЯ в конструктор объекта BOSS
+    return _possibleConstructorReturn(this, (worker.__proto__ || Object.getPrototypeOf(worker)).call(this, "Виктору Николаевичу", "кофе"));
+  }
+
+  return worker;
+}(Boss);
+
+new worker().takeCommand();
+
+var Car = function () {
+  function Car(propertyClass) {
+    _classCallCheck(this, Car);
+
+    this.propertyClass = [];
+    for (var i = 0; i < this.propertyClass.length; i++) {
+      debugger;
+      console.log("This is property car a have " + this.propertyClass[i]);
+    }
+    // console.log(`This is property car a have ${this.propertyClass}`);
+  }
+
+  _createClass(Car, [{
+    key: "getProp",
+    value: function getProp(items) {
+      this.propertyClass.push(items);
+    }
+  }]);
+
+  return Car;
+}();
+
+var markCar = function (_Car) {
+  _inherits(markCar, _Car);
+
+  function markCar() {
+    _classCallCheck(this, markCar);
+
+    debugger;
+    return _possibleConstructorReturn(this, (markCar.__proto__ || Object.getPrototypeOf(markCar)).call(this, "Ford ", "Focus", "Color", "Red"));
+  }
+
+  _createClass(markCar, [{
+    key: "deployCar",
+    value: function deployCar() {
+      _get(markCar.prototype.__proto__ || Object.getPrototypeOf(markCar.prototype), "getProp", this).call(this);
+    }
+  }]);
+
+  return markCar;
+}(Car);
+
+var v = new Car();
+v.getProp("Frank", "Focus", "Color", "Red");
+console.log(v.propertyClass);

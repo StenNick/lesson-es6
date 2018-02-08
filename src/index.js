@@ -2050,40 +2050,40 @@
 
 // ----------------------------- Classes---------------------------//
 
-class Car {
-  constructor(make, model) {
-    this.make = make;
-    this.model = model;
-    this.userSpeed = ["P", "N", "R", "D"];
-    this.userSPD = this.userSpeed[0];
-  }
-  shift(speed) {
-    if (this.userSPD.indexOf(speed) < 0)
-      throw new Error (" ERROR gear " + speed);
-      this.userSPD = speed;
-  }
-}
+// class Car {
+//   constructor(make, model) {
+//     this.make = make;
+//     this.model = model;
+//     this.userSpeed = ["P", "N", "R", "D"];
+//     this.userSPD = this.userSpeed[0];
+//   }
+//   shift(speed) {
+//     if (this.userSPD.indexOf(speed) < 0)
+//       throw new Error (" ERROR gear " + speed);
+//       this.userSPD = speed;
+//   }
+// }
 
 
-const car1 = new Car("Tesla", "Model S");
-const car2 = new Car(0);
+// const car1 = new Car("Tesla", "Model S");
+// const car2 = new Car(0);
 
 
-console.log(car1);
-console.log(car2);
+// console.log(car1);
+// console.log(car2);
 
 
-class User{
-  constructor(name) {
-    this.name = name;
-  }
-  sayHi() {
-    console.log(this.name);
-  }
-}
+// class User{
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   sayHi() {
+//     console.log(this.name);
+//   }
+// }
 
-let user1 = new User('Sadik');
-user1.sayHi();
+// let user1 = new User('Sadik');
+// user1.sayHi();
 
 //---------------- диструктуризация
 
@@ -2237,7 +2237,7 @@ class Rabbit {
 class Cat extends Rabbit { // class Дочерний_класс extends Родительский_класс
   // у класса Cat не может быть КОНСТРУКТОРА, Я ХЗ ПОЧЕМУ.... госпади
   go() { // дадим ему функцию GO() как у класса Кролик, и присвоем ее же через метод SUPER
-    debugger 
+     
     super.go();
     console.log(" jump"); // теперь и этот метод класса Cat дополнит свойства класса Кролик
   }
@@ -2245,3 +2245,57 @@ class Cat extends Rabbit { // class Дочерний_класс extends Роди
 
 let cat1 = new Cat("Milka").go(); // скажем Cat, возьми функцию GO() и выполни ее
 console.log(cat1); // Milka walk and JUMP
+
+
+
+// --------- передача конструктора другому подклассу
+
+class Boss {
+  constructor( name, coffe ) {
+    this.name = name;
+    this.coffe = coffe;
+  }
+  takeCommand() {
+    console.log(`принесите ${this.name} стакан ${this.coffe}`);
+  }
+}
+
+
+class worker extends Boss {
+  constructor() { // через метод super передадим ИМЯ в конструктор объекта BOSS
+    super("Виктору Николаевичу", "кофе");
+  }
+}
+
+new worker().takeCommand();
+
+
+
+class Car {
+  constructor( propertyClass ) {
+    this.propertyClass = [];
+      for (let i = 0; i < this.propertyClass.length; i++) {
+        debugger
+        console.log(`This is property car a have ${this.propertyClass[i]}`)
+      }
+   // console.log(`This is property car a have ${this.propertyClass}`);
+  }
+  getProp(items) {
+    this.propertyClass.push(items);
+  }
+}
+
+
+class markCar extends Car {
+  constructor() {
+    debugger
+    super("Ford ", "Focus", "Color", "Red");
+  }
+  deployCar(){
+    super.getProp();
+  }
+}
+
+const v = new Car();
+v.getProp("Frank", "Focus", "Color", "Red");
+console.log(v.propertyClass)
