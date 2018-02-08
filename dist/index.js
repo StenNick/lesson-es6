@@ -1,6 +1,14 @@
 "use strict";
 
+var _obj, _obj2;
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1984,8 +1992,212 @@ var Car = function () {
   return Car;
 }();
 
-var car1 = new Car(4);
+var car1 = new Car("Tesla", "Model S");
 var car2 = new Car(0);
 
 console.log(car1);
 console.log(car2);
+
+var User = function () {
+  function User(name) {
+    _classCallCheck(this, User);
+
+    this.name = name;
+  }
+
+  _createClass(User, [{
+    key: "sayHi",
+    value: function sayHi() {
+      console.log(this.name);
+    }
+  }]);
+
+  return User;
+}();
+
+var user1 = new User('Sadik');
+user1.sayHi();
+
+//---------------- диструктуризация
+
+
+var someElements = ["some elements", "element array", "more element"],
+    secondElement = "second element";
+
+console.log(someElements, secondElement); // ["some elements", "element array", "more element"] "second element"
+
+
+var options = {
+  title: " Title book",
+  value: 200,
+  color: "black",
+  size: "15x20"
+};
+
+var title = options.title,
+    value = options.value,
+    color = options.color,
+    size = options.size;
+
+
+console.log(title, value, color, size);
+
+var numbers = [2, 4, 5, 10];
+var maxNum = Math.max.apply(Math, numbers);
+console.log(maxNum);
+
+var obj = {
+  first: 'firstValue',
+  second: 'secondValue',
+  num: [4, 6, 10],
+  method1: function method1() {
+    console.log('this = ', this);
+  },
+  // method2 : () => console.log( first + ' first ' + second + ' second')
+  getProp: function getProp() {
+    this.num.forEach(function (elem) {
+      return console.log(elem);
+    });
+  }
+};
+
+obj.method1(); // >> {first: 'firstValue', ...}
+// obj.method2(); // >> Window
+obj.getProp();
+
+// ---------- object and prototype
+
+var name = "Larry";
+var isAdmin = "Admin";
+
+var obj22 = {
+  name: name,
+  isAdmin: isAdmin
+};
+
+console.log(JSON.stringify(obj22));
+
+var dog = {
+  walk: function walk() {
+    console.log("I walking!");
+  }
+};
+
+var rabbit = _obj = {
+  __proto__: dog,
+  doSome: function doSome() {
+    console.log(_get(_obj.__proto__ || Object.getPrototypeOf(_obj), "walk", this)); // унаследовали через __proto__ метод walk() объекта DOG
+    _get(_obj.__proto__ || Object.getPrototypeOf(_obj), "walk", this).call(this); // позволяет из метода объекта получить свойство его прототипа.
+  }
+};
+
+rabbit.walk();
+
+var whiteCat = {
+  color: "white",
+  age: 7,
+  name: "Lucy",
+  walk: function walk() {
+    console.log(this.name + " walk on street, they age " + this.age + " hes color " + this.color);
+  }
+};
+
+var blackCat = _obj2 = {
+  __proto__: whiteCat,
+  name: "Mikle",
+  age: 2,
+  color: "black",
+  herWalk: function herWalk() {
+    _get(_obj2.__proto__ || Object.getPrototypeOf(_obj2), "walk", this).call(this);
+  }
+};
+
+blackCat.walk(); // Mikle walk on street, they age 2 hes color black
+whiteCat.walk();
+
+//----------getERS and setERS-------------------------//
+
+var john = {
+  firstName: "John",
+  secondName: "Snow"
+};
+
+//----- дадим объекту метод (функцию) через метод объекта
+
+
+Object.defineProperty(john, "fullName", {
+  get: function get() {
+    // установим функцию для объекта
+    console.log(this.firstName + " " + this.secondName);
+    return this.firstName + this.secondName;
+  },
+  set: function set(value) {
+    var split = value.split(' ');
+    this.firstName = split[0];
+    this.secondName = split[1];
+  }
+});
+john.fullName; // вызвали функцию объекта которую создали через метод GET
+john.fullName = "bob Loaer";
+console.log(john.fullName);
+
+//------------ Дексриптор позволяет записывать свойство (функцию) в объект
+
+
+/*
+
+get - функция, которая будет вызвана при запросе к свойству, записывает в значение свойства объекта то, что сама возвращает.
+set - функция, которая будет вызвана при записи свойства.
+
+*/
+
+// ----- у нас есть конструктор он же Класс Кролик
+
+var Rabbit = function () {
+  function Rabbit(name) {
+    _classCallCheck(this, Rabbit);
+
+    // дадим ему аргумент ИМЯ
+    this.name = name;
+  }
+
+  _createClass(Rabbit, [{
+    key: "go",
+    value: function go() {
+      // у него будет функция GO() которая будет что либо делать
+      console.log(this.name + " walk and ");
+    }
+  }]);
+
+  return Rabbit;
+}();
+
+// скажем новому Классу Cat ПРОДОЛЖИТЬ функционал класса Кролик, как бы через прототип
+
+
+var Cat = function (_Rabbit) {
+  _inherits(Cat, _Rabbit);
+
+  function Cat() {
+    _classCallCheck(this, Cat);
+
+    return _possibleConstructorReturn(this, (Cat.__proto__ || Object.getPrototypeOf(Cat)).apply(this, arguments));
+  }
+
+  _createClass(Cat, [{
+    key: "go",
+    // class Дочерний_класс extends Родительский_класс
+    // у класса Cat не может быть КОНСТРУКТОРА, Я ХЗ ПОЧЕМУ.... госпади
+    value: function go() {
+      // дадим ему функцию GO() как у класса Кролик, и присвоем ее же через метод SUPER
+      debugger;
+      _get(Cat.prototype.__proto__ || Object.getPrototypeOf(Cat.prototype), "go", this).call(this);
+      console.log(" jump"); // теперь и этот метод класса Cat дополнит свойства класса Кролик
+    }
+  }]);
+
+  return Cat;
+}(Rabbit);
+
+var cat1 = new Cat("Milka").go(); // скажем Cat, возьми функцию GO() и выполни ее
+console.log(cat1); // Milka walk and JUMP

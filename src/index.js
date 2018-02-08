@@ -2065,8 +2065,183 @@ class Car {
 }
 
 
-const car1 = new Car(4);
+const car1 = new Car("Tesla", "Model S");
 const car2 = new Car(0);
+
 
 console.log(car1);
 console.log(car2);
+
+
+class User{
+  constructor(name) {
+    this.name = name;
+  }
+  sayHi() {
+    console.log(this.name);
+  }
+}
+
+let user1 = new User('Sadik');
+user1.sayHi();
+
+//---------------- диструктуризация
+
+
+let [someElements, secondElement] = [["some elements", "element array", "more element"], "second element"];
+console.log(someElements, secondElement); // ["some elements", "element array", "more element"] "second element"
+
+
+let options = {
+  title: " Title book",
+  value: 200,
+  color: "black",
+  size: "15x20"
+};
+
+
+let {title, value, color, size} = options;
+
+console.log(title, value, color, size);
+
+
+
+let numbers = [2, 4, 5, 10];
+let maxNum = Math.max(...numbers);
+console.log(maxNum);
+
+
+var obj = {
+  first: 'firstValue',
+  second: 'secondValue',
+  num: [4, 6, 10],
+  method1 : function() { console.log('this = ', this); },
+  // method2 : () => console.log( first + ' first ' + second + ' second')
+  getProp(){
+    this.num.forEach(elem => console.log(elem));
+  }
+  };
+  
+  obj.method1(); // >> {first: 'firstValue', ...}
+  // obj.method2(); // >> Window
+  obj.getProp();
+
+
+
+
+  // ---------- object and prototype
+
+  let name = "Larry";
+  let isAdmin = "Admin";
+
+
+  const obj22 = {
+    name,
+    isAdmin
+  };
+
+  console.log(JSON.stringify(obj22));
+
+
+
+  let dog = {
+    walk() {
+      console.log("I walking!");
+    }
+  };
+
+
+  let rabbit = {
+    __proto__: dog,
+    doSome() {
+      console.log(super.walk); // унаследовали через __proto__ метод walk() объекта DOG
+      super.walk(); // позволяет из метода объекта получить свойство его прототипа.
+    }
+  };
+
+
+  rabbit.walk();
+
+
+  const whiteCat = {
+    color: "white",
+    age: 7,
+    name: "Lucy",
+    walk() {
+      console.log(`${this.name} walk on street, they age ${this.age} hes color ${this.color}`);
+    }
+  };
+
+  const blackCat = {
+    __proto__: whiteCat,
+    name: "Mikle",
+    age: 2,
+    color: "black",
+    herWalk() {
+      super.walk();
+    }
+  };
+
+  blackCat.walk(); // Mikle walk on street, they age 2 hes color black
+  whiteCat.walk();
+
+
+
+  //----------getERS and setERS-------------------------//
+
+  const john = {
+    firstName: "John",
+    secondName: "Snow"
+  };
+
+  //----- дадим объекту метод (функцию) через метод объекта
+
+
+  Object.defineProperty(john, "fullName", {
+    get: function() { // установим функцию для объекта
+      console.log(this.firstName + " " + this.secondName );
+      return this.firstName + this.secondName;
+    },
+    set: function(value) {
+      var split = value.split(' ');
+      this.firstName = split[0];
+      this.secondName = split[1];
+    }
+  });
+  john.fullName; // вызвали функцию объекта которую создали через метод GET
+  john.fullName = "bob Loaer";
+  console.log(john.fullName)
+
+//------------ Дексриптор позволяет записывать свойство (функцию) в объект
+
+
+/*
+
+get - функция, которая будет вызвана при запросе к свойству, записывает в значение свойства объекта то, что сама возвращает.
+set - функция, которая будет вызвана при записи свойства.
+
+*/
+
+
+// ----- у нас есть конструктор он же Класс Кролик
+class Rabbit {
+  constructor( name ) { // дадим ему аргумент ИМЯ
+    this.name = name;
+  }
+  go() { // у него будет функция GO() которая будет что либо делать
+    console.log(`${this.name} walk and `);
+  }
+}
+
+// скажем новому Классу Cat ПРОДОЛЖИТЬ функционал класса Кролик, как бы через прототип
+class Cat extends Rabbit { // class Дочерний_класс extends Родительский_класс
+  // у класса Cat не может быть КОНСТРУКТОРА, Я ХЗ ПОЧЕМУ.... госпади
+  go() { // дадим ему функцию GO() как у класса Кролик, и присвоем ее же через метод SUPER
+    debugger 
+    super.go();
+    console.log(" jump"); // теперь и этот метод класса Cat дополнит свойства класса Кролик
+  }
+}
+
+let cat1 = new Cat("Milka").go(); // скажем Cat, возьми функцию GO() и выполни ее
+console.log(cat1); // Milka walk and JUMP
