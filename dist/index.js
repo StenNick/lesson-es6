@@ -2226,48 +2226,121 @@ var worker = function (_Boss) {
 
 new worker().takeCommand();
 
-var Car = function () {
-  function Car(propertyClass) {
-    _classCallCheck(this, Car);
+// class Car {
+//   constructor( propertyClass ) {
+//     this.propertyClass = [];
+//    // console.log(`This is property car a have ${this.propertyClass}`);
+//   }
+//   getProp(items) {
+//     this.propertyClass.push(items);
+//     for (let i = 0; i < this.propertyClass.length; i++) {
+//       console.log(`This is property car a have ${this.propertyClass[i]}`)
+//     }
+//   }
+// }
 
-    this.propertyClass = [];
-    for (var i = 0; i < this.propertyClass.length; i++) {
-      debugger;
-      console.log("This is property car a have " + this.propertyClass[i]);
-    }
-    // console.log(`This is property car a have ${this.propertyClass}`);
-  }
 
-  _createClass(Car, [{
-    key: "getProp",
-    value: function getProp(items) {
-      this.propertyClass.push(items);
-    }
+// class markCar extends Car {
+//   deployCar(){
+//   super.getProp();
+//  }
+// }
+
+
+// // class whiles extends Car {
+
+// // }
+
+// const v = new Car();
+// v.getProp("Frank", "Focus", "Color", "Red");
+// console.log(v.propertyClass)
+
+
+var Parent = function () {
+  function Parent(name, age, work) {
+    _classCallCheck(this, Parent);
+
+    this.name = name;
+    this.age = age;
+    this.work = work;
+  } // установили свойства в конструкторе класса
+
+
+  _createClass(Parent, [{
+    key: "getPropertyConstructor",
+    value: function getPropertyConstructor() {
+      return "My name is " + this.name + " and me " + this.age + " old year's  and so i work in " + this.work;
+    } // определим их для вызова
+
   }]);
 
-  return Car;
+  return Parent;
 }();
 
-var markCar = function (_Car) {
-  _inherits(markCar, _Car);
+var childClass = function (_Parent) {
+  _inherits(childClass, _Parent);
 
-  function markCar() {
-    _classCallCheck(this, markCar);
+  // с этом классе сделаем наследование свойст род. класса
+  function childClass(name, age, work, colorCar) {
+    _classCallCheck(this, childClass);
 
-    debugger;
-    return _possibleConstructorReturn(this, (markCar.__proto__ || Object.getPrototypeOf(markCar)).call(this, "Ford ", "Focus", "Color", "Red"));
+    // тут через super() передадим какие аргументы находятся в Род. классе
+    var _this3 = _possibleConstructorReturn(this, (childClass.__proto__ || Object.getPrototypeOf(childClass)).call(this, name, age, work)); // добваим ЕЩЕ ОДНО свойство colorCar
+
+
+    _this3.colorCar = colorCar; // определим что colorCar будет свойством 
+    return _this3;
   }
 
-  _createClass(markCar, [{
-    key: "deployCar",
-    value: function deployCar() {
-      _get(markCar.prototype.__proto__ || Object.getPrototypeOf(markCar.prototype), "getProp", this).call(this);
+  _createClass(childClass, [{
+    key: "getPropertyConstructor",
+    value: function getPropertyConstructor() {
+      // вызовем метод в дочернем классе, с таким же именем как у род класса
+      return _get(childClass.prototype.__proto__ || Object.getPrototypeOf(childClass.prototype), "getPropertyConstructor", this).call(this) + (" and color my car is " + this.colorCar);
+    } // вернем метод родителя через super() дабы не потерять контекст нового свойства с Родит. this и передадим сюда новое свойство
+
+  }]);
+
+  return childClass;
+}(Parent);
+
+/*
+создали ПОД_класс, который наследует свойства Child'a,  в наш новый класс
+мы передаем все таким же путем свойства Родителя класса Child
+в конструкторе обязательно указываем свойства Родителя и ребенка если хотим наследовать порядок и не выводить undefined
+в класс SubChild в его конструкторе ДОЛЖНЫ указывать ВСЕ свойства родителей и НОВЫЕ свойства этого класса
+для их вывода
+*/
+
+
+var subChild = function (_childClass) {
+  _inherits(subChild, _childClass);
+
+  function subChild(name, age, work, colorCar, subProp) {
+    _classCallCheck(this, subChild);
+
+    var _this4 = _possibleConstructorReturn(this, (subChild.__proto__ || Object.getPrototypeOf(subChild)).call(this, name, age, work, colorCar));
+
+    _this4.subProp = subProp;
+    return _this4;
+  }
+
+  _createClass(subChild, [{
+    key: "getPropertyConstructor",
+    value: function getPropertyConstructor() {
+      return _get(subChild.prototype.__proto__ || Object.getPrototypeOf(subChild.prototype), "getPropertyConstructor", this).call(this) + (" and speed my car " + this.subProp);
     }
   }]);
 
-  return markCar;
-}(Car);
+  return subChild;
+}(childClass);
 
-var v = new Car();
-v.getProp("Frank", "Focus", "Color", "Red");
-console.log(v.propertyClass);
+var propClass1 = new childClass("Mikle", 25, "Web developer", "red"); // далее как в аргументы функции передадим свойства
+propClass1.getPropertyConstructor();
+
+var subElem = new subChild("Mikle", 25, "Web developer", "red", "200 km/h");
+subElem.getPropertyConstructor();
+
+console.log(propClass1.getPropertyConstructor());
+console.log(subElem.getPropertyConstructor());
+// итог - My name is Mikle and me 25 old year's  and so i work in Web developer and color my car is red

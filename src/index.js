@@ -2271,31 +2271,90 @@ new worker().takeCommand();
 
 
 
-class Car {
-  constructor( propertyClass ) {
-    this.propertyClass = [];
-      for (let i = 0; i < this.propertyClass.length; i++) {
-        debugger
-        console.log(`This is property car a have ${this.propertyClass[i]}`)
-      }
-   // console.log(`This is property car a have ${this.propertyClass}`);
+// class Car {
+//   constructor( propertyClass ) {
+//     this.propertyClass = [];
+//    // console.log(`This is property car a have ${this.propertyClass}`);
+//   }
+//   getProp(items) {
+//     this.propertyClass.push(items);
+//     for (let i = 0; i < this.propertyClass.length; i++) {
+//       console.log(`This is property car a have ${this.propertyClass[i]}`)
+//     }
+//   }
+// }
+
+
+// class markCar extends Car {
+//   deployCar(){
+//   super.getProp();
+//  }
+// }
+
+
+// // class whiles extends Car {
+
+// // }
+
+// const v = new Car();
+// v.getProp("Frank", "Focus", "Color", "Red");
+// console.log(v.propertyClass)
+
+
+
+
+class Parent {
+  constructor( name, age, work ) {
+    this.name = name;
+    this.age = age;
+    this.work = work;
+  } // установили свойства в конструкторе класса
+  getPropertyConstructor() {
+    return `My name is ${this.name} and me ${this.age} old year's  and so i work in ${this.work}`;
+  } // определим их для вызова
+}
+
+class childClass extends Parent { // с этом классе сделаем наследование свойст род. класса
+  constructor(name, age, work, colorCar ) { // добваим ЕЩЕ ОДНО свойство colorCar
+    super(name, age, work); // тут через super() передадим какие аргументы находятся в Род. классе
+    this.colorCar = colorCar; // определим что colorCar будет свойством 
   }
-  getProp(items) {
-    this.propertyClass.push(items);
+  getPropertyConstructor() { // вызовем метод в дочернем классе, с таким же именем как у род класса
+    return super.getPropertyConstructor() + ` and color my car is ${this.colorCar}`;
+  } // вернем метод родителя через super() дабы не потерять контекст нового свойства с Родит. this и передадим сюда новое свойство
+}
+
+
+
+
+
+/*
+создали ПОД_класс, который наследует свойства Child'a,  в наш новый класс
+мы передаем все таким же путем свойства Родителя класса Child
+в конструкторе обязательно указываем свойства Родителя и ребенка если хотим наследовать порядок и не выводить undefined
+в класс SubChild в его конструкторе ДОЛЖНЫ указывать ВСЕ свойства родителей и НОВЫЕ свойства этого класса
+для их вывода
+*/
+class subChild extends childClass {
+  constructor(name, age, work, colorCar, subProp) {
+    super(name, age, work, colorCar);
+    this.subProp = subProp;
+  }
+  getPropertyConstructor() {
+    return super.getPropertyConstructor() + ` and speed my car ${this.subProp}`;
   }
 }
 
 
-class markCar extends Car {
-  constructor() {
-    debugger
-    super("Ford ", "Focus", "Color", "Red");
-  }
-  deployCar(){
-    super.getProp();
-  }
-}
 
-const v = new Car();
-v.getProp("Frank", "Focus", "Color", "Red");
-console.log(v.propertyClass)
+let propClass1 = new childClass("Mikle", 25, "Web developer", "red"); // далее как в аргументы функции передадим свойства
+propClass1.getPropertyConstructor();
+
+
+let subElem = new subChild("Mikle", 25, "Web developer", "red", "200 km/h");
+subElem.getPropertyConstructor();
+
+
+console.log(propClass1.getPropertyConstructor());
+console.log(subElem.getPropertyConstructor());
+// итог - My name is Mikle and me 25 old year's  and so i work in Web developer and color my car is red
