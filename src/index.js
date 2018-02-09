@@ -2325,9 +2325,6 @@ class childClass extends Parent { // с этом классе сделаем н�
 }
 
 
-
-
-
 /*
 создали ПОД_класс, который наследует свойства Child'a,  в наш новый класс
 мы передаем все таким же путем свойства Родителя класса Child
@@ -2358,3 +2355,7 @@ subElem.getPropertyConstructor();
 console.log(propClass1.getPropertyConstructor());
 console.log(subElem.getPropertyConstructor());
 // итог - My name is Mikle and me 25 old year's  and so i work in Web developer and color my car is red
+
+
+
+
