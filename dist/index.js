@@ -2344,3 +2344,55 @@ subElem.getPropertyConstructor();
 console.log(propClass1.getPropertyConstructor());
 console.log(subElem.getPropertyConstructor());
 // итог - My name is Mikle and me 25 old year's  and so i work in Web developer and color my car is red
+
+
+var Father = function Father(nameFather) {
+  _classCallCheck(this, Father);
+
+  this.nameFather = nameFather;
+};
+
+var son = function (_Father) {
+  _inherits(son, _Father);
+
+  function son(nameFather, nameSon) {
+    _classCallCheck(this, son);
+
+    var _this5 = _possibleConstructorReturn(this, (son.__proto__ || Object.getPrototypeOf(son)).call(this, nameFather));
+
+    _this5.nameSon = nameSon;
+    return _this5;
+  }
+
+  _createClass(son, [{
+    key: "callName",
+    value: function callName() {
+      return "Name my father " + this.nameFather + ", a name my son is " + this.nameSon;
+    }
+  }]);
+
+  return son;
+}(Father);
+
+var nameFamily = new son("John", "Colins");
+console.log(nameFamily.callName());
+
+//------------ Map() get() and set()
+
+
+var user2 = { name: "Mikole" };
+var user3 = { name: "Frank" };
+var user4 = { age: 25, name: "Billy" };
+var user5 = { firstName: "Harry", secondName: "Potter" };
+
+var userRoles = new Map();
+
+console.log(userRoles.set(user2, "New Name"));
+console.log(userRoles.set(user3));
+
+userRoles.set(user4, 25, "Sam Fisher").set(user5, "James", "Abramson");
+
+console.log(user4, user5);
+
+userRoles.get(user3, "Not frank, James!");
+console.log(user3);

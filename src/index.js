@@ -2359,3 +2359,53 @@ console.log(subElem.getPropertyConstructor());
 
 
 
+class Father {
+  constructor( nameFather ) {
+    this.nameFather = nameFather;
+  }
+}
+
+
+class son extends Father {
+  constructor( nameFather, nameSon ) {
+    super(nameFather);
+    this.nameSon = nameSon;
+  }
+  callName() {
+    return `Name my father ${this.nameFather}, a name my son is ${this.nameSon}`;
+  }
+}
+
+
+let nameFamily = new son("John", "Colins");
+console.log(nameFamily.callName());
+
+
+
+
+
+
+//------------ Map() get() and set()
+
+
+
+
+const user2 = {name: "Mikole"};
+const user3 = {name: "Frank"};
+const user4 = {age: 25, name: "Billy"};
+const user5 = {firstName: "Harry", secondName: "Potter"};
+
+const userRoles = new Map();
+
+console.log(userRoles.set(user2, "New Name") );
+console.log(userRoles.set(user3) );
+
+
+userRoles
+         .set(user4, 25, "Sam Fisher")
+         .set(user5, "James", "Abramson");
+
+console.log(user4, user5);
+
+userRoles.get(user3, "Not frank, James!");
+console.log(user3);
